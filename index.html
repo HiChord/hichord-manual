@@ -796,12 +796,57 @@ function toggleNav() {
 
 function filterNav() {
     const input = document.getElementById('navSearch');
-    const filter = input.value.toLowerCase();
+    const filter = input.value.toLowerCase().trim();
     const items = document.querySelectorAll('.nav-item');
 
-    items.forEach(item => {
-        const text = item.textContent.toLowerCase();
+    if (filter === '') {
+        // Show all items when search is empty
+        items.forEach(item => item.classList.remove('hidden'));
+        return;
+    }
+
+    // Get all section content for searching
+    const sections = document.querySelectorAll('h2, h3, h4, p, li, td, th');
+    const matchingSectionIds = new Set();
+
+    // Find which sections contain the search term
+    sections.forEach(section => {
+        const text = section.textContent.toLowerCase();
         if (text.includes(filter)) {
+            // Find the parent section ID
+            let parent = section;
+            while (parent && !parent.id) {
+                parent = parent.previousElementSibling;
+            }
+            if (parent && parent.id) {
+                matchingSectionIds.add(parent.id);
+            }
+            // Also check for h2/h3 IDs directly
+            if (section.id) {
+                matchingSectionIds.add(section.id);
+            }
+        }
+    });
+
+    // Filter nav items based on matching sections
+    items.forEach(item => {
+        const link = item.querySelector('a');
+        if (!link) {
+            item.classList.remove('hidden');
+            return;
+        }
+
+        const href = link.getAttribute('href');
+        if (!href) {
+            item.classList.remove('hidden');
+            return;
+        }
+
+        const sectionId = href.replace('#', '');
+        const itemText = item.textContent.toLowerCase();
+
+        // Show item if: nav text matches OR section content matches
+        if (itemText.includes(filter) || matchingSectionIds.has(sectionId)) {
             item.classList.remove('hidden');
         } else {
             item.classList.add('hidden');
