@@ -1,0 +1,2507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiChord // OPERATION MANUAL</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0A0A0A;
+            --white: #FAFAFA;
+            --gray: #6B6B6B;
+            --light-gray: #DADADA;
+            --lighter-gray: #F2F2F2;
+            --lightest-gray: #F8F8F8;
+            --section-bg: #FAFCFC;
+            --card-bg: #FFFFFF;
+            --accent: #FF6B35;
+            --accent-hover: #E85A28;
+            --accent-light: #FFF4F0;
+            --f3-red: #ef4444;
+            --f3-red-hover: #dc2626;
+            --f2-yellow: #FFB800;
+            --f1-gray: #808080;
+            --success: #10b981;
+            --warning: #FF6B35;
+            --danger: #ef4444;
+            --border-light: #E5E7EB;
+            --border-medium: #D1D5DB;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.65;
+            padding: 40px;
+            padding-top: 80px;
+            max-width: 880px;
+            margin: 0 auto;
+            font-size: 15px;
+            font-weight: 400;
+            letter-spacing: -0.011em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 600;
+            letter-spacing: -1.2px;
+            margin-bottom: 6px;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 16px;
+            color: var(--black);
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 64px;
+            margin-bottom: 24px;
+            margin-left: -20px;
+            margin-right: -20px;
+            padding: 16px 20px;
+            padding-left: 34px;
+            letter-spacing: 0.5px;
+            color: var(--black);
+            border-left: 4px solid var(--accent);
+            background: linear-gradient(90deg, var(--accent-light) 0%, transparent 100%);
+            text-transform: uppercase;
+            border-radius: 0 4px 4px 0;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--black);
+        }
+
+        h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 10px;
+            color: var(--black);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        p {
+            margin-bottom: 16px;
+        }
+
+        .header-meta {
+            font-size: 11px;
+            color: var(--gray);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            font-weight: 500;
+        }
+
+        .section-divider {
+            border-top: 1px solid var(--border-light);
+            margin: 64px 0 40px 0;
+        }
+
+        .control-line {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            margin-bottom: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .control-line:last-child {
+            border-bottom: none;
+        }
+
+        .control-label {
+            font-weight: 600;
+        }
+
+        .control-desc {
+            color: var(--gray);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 14px;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: none;
+            border: 1px solid var(--border-light);
+            display: table;
+            table-layout: auto;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .table-wrapper table {
+            margin: 0;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-light);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        th {
+            font-weight: 600;
+            border-bottom: 2px solid var(--border-medium);
+            background: linear-gradient(180deg, #FAFAFA 0%, #F2F2F2 100%);
+            color: var(--black);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        tbody tr:nth-child(even) {
+            background: var(--lightest-gray);
+        }
+
+        tbody tr:hover {
+            background: #E8F4FF;
+            transition: background 0.15s ease;
+        }
+
+        .diagram-placeholder {
+            border: 1px solid var(--border-light);
+            padding: 36px;
+            margin: 28px 0;
+            text-align: center;
+            background: var(--lighter-gray);
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 2px;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .diagram-label {
+            font-weight: 600;
+            color: var(--black);
+            text-transform: uppercase;
+            letter-spacing: 1.6px;
+            margin-bottom: 10px;
+            font-size: 11px;
+        }
+
+        .diagram-instructions {
+            color: var(--gray);
+            font-size: 11px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .note-box {
+            border-left: 4px solid var(--accent);
+            padding: 20px 24px;
+            margin: 24px 0;
+            background: var(--accent-light);
+            border-radius: 0 6px 6px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--accent);
+        }
+
+        .note-box.critical {
+            border-left-color: var(--f3-red);
+            background: #FEF2F2;
+        }
+
+        .inline-code {
+            font-family: 'SF Mono', 'Monaco', 'Consolas', 'Courier New', monospace;
+            background: var(--black);
+            padding: 3px 7px;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--white);
+        }
+
+        /* Function Key Icons */
+        .inline-code.f1,
+        .inline-code.f2,
+        .inline-code.f3 {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            padding: 0;
+            border-radius: 3px;
+            position: relative;
+            vertical-align: middle;
+            margin: 0 3px;
+            font-size: 0;
+            line-height: 0;
+            overflow: hidden;
+            text-indent: -9999px;
+            border: none;
+            flex-shrink: 0;
+        }
+
+        .inline-code.f1 {
+            background: var(--f1-gray);
+        }
+
+        .inline-code.f2 {
+            background: var(--f2-yellow);
+        }
+
+        .inline-code.f3 {
+            background: var(--f3-red);
+        }
+
+        /* SVG icons inside function keys */
+        .inline-code.f1::before,
+        .inline-code.f2::before,
+        .inline-code.f3::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 18px;
+            height: 18px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* F1 - Key Icon (pointing top-right) */
+        .inline-code.f1::before {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="14" r="3.5"/><line x1="9.5" y1="11.5" x2="18" y2="3"/><line x1="16" y1="5" x2="16" y2="3"/></svg>');
+        }
+
+        /* F2 - Waveform/Signal Icon (square wave) */
+        .inline-code.f2::before {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,17 3,9 7,9 7,17 11,17 11,9 15,9 15,17 19,17 19,9 21,9"/></svg>');
+        }
+
+        /* F3 - Clock Icon (12 and 3 o'clock) */
+        .inline-code.f3::before {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="12" x2="12" y2="6"/><line x1="12" y1="12" x2="17" y2="12"/></svg>');
+        }
+
+        .mode-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 24px 0;
+        }
+
+        .mode-card {
+            border: 1px solid var(--border-light);
+            padding: 20px 22px;
+            border-radius: 6px;
+            background: var(--card-bg);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .mode-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            background: var(--lightest-gray);
+            border-color: var(--border-medium);
+            transform: translateY(-1px);
+        }
+
+        .mode-card h4 {
+            margin-top: 0;
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid var(--accent);
+            color: var(--black);
+        }
+
+        .quick-ref {
+            background: var(--black);
+            color: #EFEFEF;
+            padding: 28px 32px;
+            margin: 40px 0;
+            border-radius: 3px;
+            box-shadow: none;
+            border: 1px solid var(--black);
+        }
+
+        .quick-ref h3 {
+            color: #FFFFFF;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 12px;
+        }
+
+        .quick-ref table {
+            box-shadow: none;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .quick-ref th {
+            background: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .quick-ref td {
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+            color: #EFEFEF;
+        }
+
+        .quick-ref tbody tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .quick-ref tbody tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Section Container for grouping related content */
+        .section-container {
+            background: var(--section-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 28px 0;
+        }
+
+        .section-container h3:first-child {
+            margin-top: 0;
+        }
+
+        /* Content Card for grouping smaller elements */
+        .content-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            padding: 18px 20px;
+            margin: 16px 0;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+
+        @media print {
+            body {
+                padding: 20px;
+            }
+            .diagram-placeholder {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+                padding-top: 70px;
+                font-size: 14px;
+            }
+            h1 {
+                font-size: 32px;
+                letter-spacing: -0.8px;
+            }
+            h2 {
+                font-size: 20px;
+                margin-top: 48px;
+            }
+            h3 {
+                font-size: 15px;
+            }
+            .control-line {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+            .mode-grid {
+                grid-template-columns: 1fr;
+            }
+            table {
+                font-size: 13px;
+            }
+            th, td {
+                padding: 10px 12px;
+            }
+            .note-box {
+                padding: 14px 16px;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.65;
+        }
+
+        /* Sticky Navigation */
+        .nav-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--black);
+            color: white;
+            border: none;
+            padding: 11px 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            z-index: 1001;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+        }
+
+        .nav-toggle:hover {
+            background: var(--accent);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .sticky-nav {
+            position: fixed;
+            top: 70px;
+            left: 20px;
+            width: 290px;
+            max-height: calc(100vh - 90px);
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            padding: 20px;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow-y: auto;
+            overflow-x: hidden;
+            display: none;
+        }
+
+        .sticky-nav.active {
+            display: block;
+        }
+
+        .sticky-nav h4 {
+            margin-top: 0;
+            margin-bottom: 14px;
+            color: var(--black);
+            font-size: 14px;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 8px;
+        }
+
+        .sticky-nav input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--border-light);
+            border-radius: 3px;
+            margin-bottom: 16px;
+            font-size: 13px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+            transition: border-color 0.2s ease;
+        }
+
+        .sticky-nav input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+
+        .sticky-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sticky-nav li {
+            margin-bottom: 8px;
+        }
+
+        .sticky-nav a {
+            color: var(--black);
+            text-decoration: none;
+            font-size: 13px;
+            line-height: 1.6;
+            display: block;
+            padding: 6px 8px;
+            border-radius: 3px;
+            transition: all 0.15s ease;
+        }
+
+        .sticky-nav a:hover {
+            background: var(--lighter-gray);
+            color: var(--black);
+            padding-left: 12px;
+        }
+
+        .sticky-nav .nav-item.hidden {
+            display: none;
+        }
+
+        .sticky-nav .nav-sub a {
+            font-size: 12px;
+            padding-left: 18px;
+            color: var(--gray);
+        }
+
+        .sticky-nav .nav-sub a:hover {
+            padding-left: 22px;
+            color: var(--black);
+            background: var(--lighter-gray);
+        }
+
+        /* Navigation backdrop */
+        .nav-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            backdrop-filter: blur(2px);
+        }
+
+        .nav-backdrop.active {
+            display: block;
+        }
+
+        @media print {
+            .nav-toggle, .sticky-nav, .nav-backdrop {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sticky-nav {
+                right: 10px;
+                left: 10px;
+                width: auto;
+                top: 60px;
+            }
+            .nav-toggle {
+                right: 10px;
+                padding: 10px 14px;
+                font-size: 13px;
+            }
+        }
+
+        /* OLED Display Simulator */
+        .oled-display {
+            background: #0A0A0A;
+            color: #EFEFEF;
+            font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+            font-size: 11px;
+            line-height: 1.3;
+            padding: 16px 18px;
+            border-radius: 3px;
+            margin: 28px 0;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            width: fit-content;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        .oled-display pre {
+            margin: 0;
+            white-space: pre;
+            font-family: inherit;
+            font-size: inherit;
+            overflow-x: auto;
+        }
+
+        .oled-label {
+            text-align: center;
+            font-size: 11px;
+            color: var(--gray);
+            margin-top: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+        }
+
+        /* Image containers */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Grid containers for OLED displays */
+        div[style*="grid"] {
+            overflow-x: auto;
+        }
+
+        /* Ensure inline styles don't break layout */
+        *[style*="display: grid"] {
+            max-width: 100%;
+        }
+
+        /* Additional mobile improvements */
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+                padding-top: 65px;
+                font-size: 13px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 18px;
+                margin-top: 40px;
+            }
+
+            .nav-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 11px;
+            }
+
+            .sticky-nav {
+                top: 55px;
+                max-height: calc(100vh - 70px);
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            th, td {
+                padding: 8px 10px;
+            }
+
+            .oled-display {
+                font-size: 10px;
+                padding: 12px 14px;
+            }
+
+            .mode-card {
+                padding: 14px 16px;
+            }
+
+            .section-container {
+                padding: 18px 20px;
+                margin: 20px 0;
+            }
+
+            .content-card {
+                padding: 14px 16px;
+            }
+
+            h2 {
+                margin-left: -15px;
+                margin-right: -15px;
+                padding-left: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Backdrop -->
+<div class="nav-backdrop" id="navBackdrop" onclick="toggleNav()"></div>
+
+<!-- Sticky Navigation Toggle -->
+<button class="nav-toggle" onclick="toggleNav()">NAVIGATION</button>
+
+<!-- Sticky Navigation Panel -->
+<div class="sticky-nav" id="stickyNav">
+    <h4>QUICK NAVIGATION</h4>
+    <input type="text" id="navSearch" placeholder="Search sections..." onkeyup="filterNav()">
+    <ul id="navList">
+        <li class="nav-item"><a href="#section00">00 // Quick Start</a></li>
+        <li class="nav-item"><a href="#section01">01 // Basic Operation</a></li>
+        <li class="nav-item nav-sub"><a href="#inversions">→ Inversions</a></li>
+        <li class="nav-item nav-sub"><a href="#chord-lock">→ Chord Lock</a></li>
+        <li class="nav-item nav-sub"><a href="#octave-shifting">→ Octave Shifting</a></li>
+        <li class="nav-item nav-sub"><a href="#advanced-key">→ Changing Key</a></li>
+        <li class="nav-item nav-sub"><a href="#advanced-bpm">→ BPM (Tempo)</a></li>
+        <li class="nav-item"><a href="#section02">02 // Sound Selection</a></li>
+        <li class="nav-item"><a href="#section03">03 // Effects Menu</a></li>
+        <li class="nav-item nav-sub"><a href="#effect-reverb">→ Reverb</a></li>
+        <li class="nav-item nav-sub"><a href="#effect-delay">→ Delay</a></li>
+        <li class="nav-item nav-sub"><a href="#effect-chorus">→ Chorus</a></li>
+        <li class="nav-item nav-sub"><a href="#effect-flanger">→ Flanger</a></li>
+        <li class="nav-item nav-sub"><a href="#effect-filter">→ Filter</a></li>
+        <li class="nav-item nav-sub"><a href="#effect-voicelead">→ Voice Lead</a></li>
+        <li class="nav-item"><a href="#section04">04 // Audio Output</a></li>
+        <li class="nav-item"><a href="#section05">05 // Mode Menu</a></li>
+        <li class="nav-item"><a href="#section06">06 // Mode Descriptions</a></li>
+        <li class="nav-item nav-sub"><a href="#mode-oneshot">→ ONESHOT</a></li>
+        <li class="nav-item nav-sub"><a href="#mode-strum">→ STRUM</a></li>
+        <li class="nav-item nav-sub"><a href="#mode-lead">→ LEAD</a></li>
+        <li class="nav-item nav-sub"><a href="#mode-arpeggio">→ ARPEGGIO</a></li>
+        <li class="nav-item nav-sub"><a href="#mode-drone">→ DRONE</a></li>
+        <li class="nav-item nav-sub"><a href="#mode-drummode">→ DRUMMODE</a></li>
+        <li class="nav-item"><a href="#section07">07 // Looper</a></li>
+        <li class="nav-item"><a href="#section08">08 // User Presets</a></li>
+        <li class="nav-item"><a href="#section09">09 // Advanced Controls</a></li>
+        <li class="nav-item"><a href="#section10">10 // Music Theory</a></li>
+        <li class="nav-item nav-sub"><a href="#theory-diatonic">→ Diatonic Chord System</a></li>
+        <li class="nav-item nav-sub"><a href="#theory-chords">→ Chord Types</a></li>
+        <li class="nav-item"><a href="#section11">11 // Synthesis Engine</a></li>
+        <li class="nav-item nav-sub"><a href="#synth-architecture">→ Voice Architecture</a></li>
+        <li class="nav-item nav-sub"><a href="#synth-engines">→ Digital/FM/Sample</a></li>
+        <li class="nav-item nav-sub"><a href="#synth-signal">→ Signal Flow</a></li>
+        <li class="nav-item"><a href="#section12">12 // Button Reference</a></li>
+        <li class="nav-item"><a href="#section13">13 // Specifications</a></li>
+        <li class="nav-item"><a href="#section14">14 // Troubleshooting</a></li>
+        <li class="nav-item"><a href="#section15">15 // Hardware Versions</a></li>
+    </ul>
+</div>
+
+<script>
+function toggleNav() {
+    const nav = document.getElementById('stickyNav');
+    const backdrop = document.getElementById('navBackdrop');
+    nav.classList.toggle('active');
+    backdrop.classList.toggle('active');
+}
+
+function filterNav() {
+    const input = document.getElementById('navSearch');
+    const filter = input.value.toLowerCase();
+    const items = document.querySelectorAll('.nav-item');
+
+    items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(filter)) {
+            item.classList.remove('hidden');
+        } else {
+            item.classList.add('hidden');
+        }
+    });
+}
+
+// Close nav when clicking a link
+document.querySelectorAll('.sticky-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('stickyNav').classList.remove('active');
+        document.getElementById('navBackdrop').classList.remove('active');
+    });
+});
+
+// Close nav when clicking outside
+document.addEventListener('click', (e) => {
+    const nav = document.getElementById('stickyNav');
+    const toggle = document.querySelector('.nav-toggle');
+    const backdrop = document.getElementById('navBackdrop');
+    if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove('active');
+        backdrop.classList.remove('active');
+    }
+});
+</script>
+
+<h1>HiChord</h1>
+<div class="header-meta">Operation Manual // Rev 1.9</div>
+
+<p>HiChord is a chord synthesizer with <strong>7 Chord Buttons</strong> that play the chords naturally occurring in any musical key. Press any chord button and the chords always work together — no music theory required. Hold a chord button and move the <strong>joystick</strong> to modify the chord (major to minor, sus4, 7ths, extended chords, etc). Change keys instantly with <span class="inline-code f1">F1</span> + LEFT/RIGHT.</p>
+
+<p>The sound engine combines digital oscillators, FM synthesis, and sample playback across 12 voices. Onboard effects include reverb, delay, chorus, and flanger. The 2-track looper captures your progressions for live layering.</p>
+
+<!-- HARDWARE OVERVIEW -->
+<div style="text-align: center; margin: 24px 0;">
+    <img src="../../Manual Images/Front View.png" alt="HiChord Front View" style="max-width: min(400px, 100%); width: 100%; height: auto; border: 1px solid var(--border-light); border-radius: 3px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); margin: 0 auto;">
+    <p style="margin-top: 10px; font-size: 12px; color: var(--gray);"><strong>HiChord Hardware Layout:</strong> OLED display (left), 8-direction joystick, 3 function buttons (F1 gray, F2 yellow, F3 red), and 7 Chord Buttons (1-7)</p>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="note-box" style="background: var(--lighter-gray); border-left-color: var(--black);">
+<h3 style="margin-top: 0; color: var(--black); font-size: 14px;">TABLE OF CONTENTS</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px 28px; font-size: 12px; line-height: 1.8;">
+    <div>
+        <strong><a href="#section00" style="color: var(--black); text-decoration: none;">00 // QUICK START</a></strong><br>
+        <strong><a href="#section01" style="color: var(--black); text-decoration: none;">01 // BASIC OPERATION</a></strong><br>
+        <strong><a href="#section02" style="color: var(--black); text-decoration: none;">02 // SOUND SELECTION</a></strong><br>
+        <strong><a href="#section03" style="color: var(--black); text-decoration: none;">03 // EFFECTS MENU</a></strong><br>
+        <strong><a href="#section04" style="color: var(--black); text-decoration: none;">04 // AUDIO OUTPUT</a></strong><br>
+        <strong><a href="#section05" style="color: var(--black); text-decoration: none;">05 // MODE MENU</a></strong><br>
+        <strong><a href="#section06" style="color: var(--black); text-decoration: none;">06 // MODE DESCRIPTIONS</a></strong>
+    </div>
+    <div>
+        <strong><a href="#section07" style="color: var(--black); text-decoration: none;">07 // LOOPER</a></strong><br>
+        <strong><a href="#section08" style="color: var(--black); text-decoration: none;">08 // USER PRESETS</a></strong><br>
+        <strong><a href="#section09" style="color: var(--black); text-decoration: none;">09 // ADVANCED CONTROLS</a></strong><br>
+        <strong><a href="#section10" style="color: var(--black); text-decoration: none;">10 // MUSIC THEORY</a></strong><br>
+        <strong><a href="#section11" style="color: var(--black); text-decoration: none;">11 // SYNTHESIS ENGINE</a></strong><br>
+        <strong><a href="#section12" style="color: var(--black); text-decoration: none;">12 // BUTTON REFERENCE</a></strong><br>
+        <strong><a href="#section13" style="color: var(--black); text-decoration: none;">13 // SPECIFICATIONS</a></strong><br>
+        <strong><a href="#section14" style="color: var(--black); text-decoration: none;">14 // TROUBLESHOOTING</a></strong><br>
+        <strong><a href="#section15" style="color: var(--black); text-decoration: none;">15 // HARDWARE VERSIONS</a></strong>
+    </div>
+</div>
+</div>
+
+
+<div class="section-divider"></div>
+
+<h2 id="section00">00 // QUICK START</h2>
+
+<div class="note-box">
+<h4 style="margin-top: 0;">First Time Using HiChord?</h4>
+<ol style="margin: 10px 0 0 0;">
+    <li><strong>Power on:</strong> Slide the red power button on top. Wait for OLED display to initialize</li>
+    <li><strong>Adjust volume:</strong> Use the volume slider on top. For best sound quality, use headphones connected to the headphone jack</li>
+    <li><strong>Play a chord:</strong> Press any Chord Button 1-7. These represent scale degrees (I, ii, iii, IV, V, vi, vii°)</li>
+    <li><strong>Try different sounds:</strong> Press <span class="inline-code f2">F2</span>, press Joystick UP to enter the <strong>Sounds</strong> menu, then LEFT/RIGHT to browse Sounds</li>
+    <li><strong>Add effects:</strong> Press <span class="inline-code f2">F2</span>, use Joystick LEFT/RIGHT to find REVERB or DELAY, then DOWN to toggle ON/OFF</li>
+    <li><strong>Change key:</strong> Press <span class="inline-code f1">F1</span>, then Joystick LEFT/RIGHT to transpose</li>
+    <li><strong>Try modes:</strong> Hold <span class="inline-code f3">F3</span>, then press Chord Buttons 1-7 for quick mode select (ONESHOT, STRUM, LEAD, DRONE, ARPEGGIO, REPEAT, DRUMMODE)</li>
+</ol>
+</div>
+
+<h3>Three Function Buttons</h3>
+<ul>
+    <li><strong><span class="inline-code f1">F1</span></strong> — <strong>Settings</strong> Menu (key, octave)</li>
+    <li><strong><span class="inline-code f2">F2</span></strong> — <strong>Effects</strong> & <strong>Sounds</strong> Menu (effects, waveforms)</li>
+    <li><strong><span class="inline-code f3">F3</span></strong> — Mode Selection & BPM (tempo, modes)</li>
+</ul>
+
+<div class="note-box">
+<strong>Advanced Tip:</strong> The Volume Knob can be combined with function buttons for precise sound shaping (Attack, Release, Filter). See the <a href="#section09">Advanced Controls</a> section for details.
+</div>
+
+<div class="note-box" style="background: linear-gradient(135deg, #E8F4FF 0%, #F0F9FF 100%); border-left-color: #3B82F6;">
+<strong style="color: #1E40AF; font-size: 14px;">NEED HELP?</strong><br>
+Having trouble or have questions? Contact our support team at <a href="mailto:support@hichord.shop" style="color: #2563EB; font-weight: 600; text-decoration: none; border-bottom: 1px solid #93C5FD;">support@hichord.shop</a>
+</div>
+
+<div class="section-divider"></div>
+
+<h2 id="section01">01 // BASIC OPERATION</h2>
+
+<h3>Playing Chords</h3>
+<p>The 7 Chord Buttons trigger chords using the Diatonic Chord System. Each chord button represents a scale degree in the current key. In major mode:</p>
+<table>
+    <tr>
+        <th>CHORD BUTTON</th>
+        <th>DEGREE</th>
+        <th>DEFAULT CHORD TYPE</th>
+        <th>EXAMPLE (KEY OF C)</th>
+    </tr>
+    <tr><td>1</td><td>I</td><td>Major</td><td>C Major</td></tr>
+    <tr><td>2</td><td>ii</td><td>minor</td><td>D minor</td></tr>
+    <tr><td>3</td><td>iii</td><td>minor</td><td>E minor</td></tr>
+    <tr><td>4</td><td>IV</td><td>Major</td><td>F Major</td></tr>
+    <tr><td>5</td><td>V</td><td>Major</td><td>G Major</td></tr>
+    <tr><td>6</td><td>vi</td><td>minor</td><td>A minor</td></tr>
+    <tr><td>7</td><td>vii°</td><td>dim</td><td>B diminished</td></tr>
+</table>
+
+<h3>Modifying Chords with Joystick</h3>
+<p><strong>How it works:</strong> Hold any Chord Button, then move the joystick in any direction to modify the chord quality in real-time. Release the joystick to return to the default chord.</p>
+
+<p><strong>Example:</strong> Hold Chord Button 1 (I chord, C Major), push joystick UP to toggle to C minor, or push RIGHT for C Maj7, or push DOWN for C sus4.</p>
+
+<!-- JOYSTICK CHORD MAP -->
+<div style="text-align: center; margin: 24px 0; overflow-x: auto;">
+    <table style="margin: 0 auto; border-collapse: separate; border-spacing: 6px; box-shadow: none; width: auto; min-width: 280px;">
+        <tr>
+            <td style="background: var(--lighter-gray); padding: 12px 16px; text-align: center; border: 1px solid var(--border-light); border-radius: 3px; font-weight: 600; min-width: 80px;">↖<br>aug</td>
+            <td style="background: var(--lighter-gray); padding: 12px 16px; text-align: center; border: 1px solid var(--border-light); border-radius: 3px; font-weight: 600; min-width: 80px;">↑<br>Maj/min</td>
+            <td style="background: var(--lighter-gray); padding: 12px 16px; text-align: center; border: 1px solid var(--border-light); border-radius: 3px; font-weight: 600; min-width: 80px;">↗<br>dom7</td>
+        </tr>
+        <tr>
+            <td style="background: var(--lighter-gray); padding: 12px 16px; text-align: center; border: 1px solid var(--border-light); border-radius: 3px; font-weight: 600; min-width: 80px;">←<br>dim</td>
+            <td style="background: var(--white); padding: 12px 16px; text-align: center; border: 1px solid var(--light-gray); border-radius: 3px; font-weight: 600; min-width: 80px;">●<br>(base)</td>
+            <td style="background: var(--lighter-gray); padding: 12px 16px; text-align: center; border: 1px solid var(--border-light); border-radius: 3px; font-weight: 600; min-width: 80px;">→<br>Maj7/m7</td>
+        </tr>
+        <tr>
+            <td style="background: var(--lighter-gray); padding: 12px 16px; text-align: center; border: 1px solid var(--border-light); border-radius: 3px; font-weight: 600; min-width: 80px;">↙<br>6/sus2</td>
+            <td style="background: var(--lighter-gray); padding: 12px 16px; text-align: center; border: 1px solid var(--border-light); border-radius: 3px; font-weight: 600; min-width: 80px;">↓<br>sus4</td>
+            <td style="background: var(--lighter-gray); padding: 12px 16px; text-align: center; border: 1px solid var(--border-light); border-radius: 3px; font-weight: 600; min-width: 80px;">↘<br>9</td>
+        </tr>
+    </table>
+    <div class="oled-label">JOYSTICK CHORD MAP (DEFAULT MODE)</div>
+    <p style="text-align: center; font-size: 11px; color: var(--gray); margin-top: 6px;">Note: Some modifications depend on base chord quality (major/minor)</p>
+</div>
+
+<table>
+    <tr>
+        <th>JOYSTICK</th>
+        <th>DEFAULT MODE</th>
+        <th>EXTENDED MODE</th>
+    </tr>
+    <tr><td>UP</td><td>Major ↔ Minor toggle</td><td>Major ↔ Minor toggle</td></tr>
+    <tr><td>DOWN</td><td>sus4</td><td>dom7♯9</td></tr>
+    <tr><td>LEFT</td><td>dim</td><td>sus4+7</td></tr>
+    <tr><td>RIGHT</td><td>Maj7 / min7</td><td>add11</td></tr>
+    <tr><td>UP+LEFT</td><td>aug</td><td>half-dim7</td></tr>
+    <tr><td>UP+RIGHT</td><td>dom7</td><td>dom9</td></tr>
+    <tr><td>DOWN+LEFT</td><td>6 (major) / sus2 (minor)</td><td>add9</td></tr>
+    <tr><td>DOWN+RIGHT</td><td>9 (Maj9/min9)</td><td>min11</td></tr>
+</table>
+
+<div class="note-box">
+<strong>Pro Tip:</strong> DEFAULT mode covers all essential chord colors for most musical styles. Want more harmonic depth? Enable EXTENDED mode: Press <span class="inline-code f2">F2</span> → navigate to JOYSTICK option → toggle to EXTENDED for sophisticated voicings like dom9, min11, and add9.
+</div>
+
+<h3 id="inversions">Inversions</h3>
+<p><strong>What are inversions?</strong> Inversions change which note is lowest in the chord voicing, creating smoother bass movement between chords.</p>
+
+<p><strong>Manual control:</strong> While holding any Chord Button, press <span class="inline-code f2">F2</span> to cycle through inversions:</p>
+<ul>
+    <li><strong>Root Position</strong> (default) → <strong>1st Inversion</strong> → <strong>2nd Inversion</strong> → (repeat)</li>
+</ul>
+
+<p><strong>Alternative:</strong> Hold Chord Button + click joystick (same function, handy during performance!)</p>
+
+<p><strong>Automatic voice leading:</strong> Enable VOICE LEAD in the <span class="inline-code f2">F2</span> <strong>Effects</strong> menu to have HiChord automatically select inversions for smooth voice leading between chords. This creates professional-sounding progressions with minimal melodic motion.</p>
+
+<h3 id="chord-lock">Chord Lock (Make Modifications Permanent)</h3>
+<p><strong>Purpose:</strong> Save a modified chord (like sus4 or Maj7) so the chord button always plays that variation.</p>
+
+<p><strong>To lock a chord:</strong></p>
+<ol>
+    <li>Hold Chord Button (e.g., Chord Button 4)</li>
+    <li>Move joystick to desired modification (e.g., UP for sus4)</li>
+    <li>While still holding both, press <span class="inline-code f2">F2</span></li>
+    <li>Display shows "LOCKED" — Chord Button 4 now always plays IV sus4</li>
+</ol>
+
+<p><strong>To unlock:</strong> Repeat the same process (hold chord button + joystick direction + <span class="inline-code f2">F2</span>)</p>
+
+<h3 id="octave-shifting">Octave Shifting</h3>
+
+<h4>Per-Button Octave</h4>
+<p><strong>Purpose:</strong> Raise or lower the pitch range of individual Chord Buttons for more voicing flexibility.</p>
+
+<ul>
+    <li><strong>Octave DOWN:</strong> Hold Chord Button, then press <span class="inline-code f1">F1</span></li>
+    <li><strong>Octave UP:</strong> Hold Chord Button, then press <span class="inline-code f3">F3</span></li>
+    <li>Range: -2 octaves → -1 octave → Normal → +1 octave</li>
+    <li>Each chord button remembers its octave setting independently</li>
+</ul>
+
+<h4>Global Octave (All Chord Buttons)</h4>
+<p><strong>Purpose:</strong> Shift the pitch range of all Chord Buttons simultaneously.</p>
+
+<p><strong>Operation:</strong></p>
+<ol>
+    <li>Press <span class="inline-code f1">F1</span> to open <strong>KEY + OCTAVE</strong> menu</li>
+    <li>Use Joystick UP/DOWN to adjust global octave</li>
+    <li>Range: -1 octave → +0 (normal) → +1 octave → +2 octaves</li>
+</ol>
+
+<p><strong>Also in <strong>F1</strong> menu:</strong> Use Joystick LEFT/RIGHT to change key (transpose all chords)</p>
+
+<div class="note-box">
+The <strong>F1</strong> menu closes automatically after 5 seconds of inactivity, or press <span class="inline-code f1">F1</span> again to close immediately.
+</div>
+
+<div class="note-box">
+<strong>Global vs Per-Button:</strong> Global octave shifts apply to all chord buttons at once, while per-chord-button shifts allow you to create custom voicings where different Chord Buttons play in different octave ranges.
+</div>
+
+<h3 id="advanced-key">Changing Key</h3>
+<p><strong>How to change key:</strong> Press <span class="inline-code f1">F1</span> to open <strong>KEY + OCTAVE</strong> menu, then use Joystick LEFT/RIGHT to select a new key.</p>
+
+<p><strong>Available keys:</strong> C, C#, D, D#, E, F, F#, G, G#, A, A#, B (all 12 chromatic keys)</p>
+
+<p>All Chord Buttons transpose to the new key, maintaining Diatonic Chord System relationships. The current key is always displayed on screen.</p>
+
+<h3 id="advanced-bpm">BPM (Tempo)</h3>
+<p><strong>How to change BPM:</strong> Press <span class="inline-code f2">F2</span> → navigate to BPM → Joystick UP/DOWN to adjust (60-190 BPM)</p>
+
+<p><strong>What it affects:</strong> All rhythm rates, delays, arpeggios, drum loops, sequencer, and metronome sync to the current BPM.</p>
+
+<div class="section-divider"></div>
+
+<h2 id="section02">02 // SOUND SELECTION</h2>
+
+<p>HiChord offers multiple synthesis engines: analog waveforms, FM synthesis, sample playback, and hybrid presets. Choose sounds that fit your musical style.</p>
+
+<h3>Method 1: Quick Select (Fastest)</h3>
+<p>Hold <span class="inline-code f2">F2</span> first, then press a Chord Button for instant sound selection:</p>
+
+<table>
+    <tr>
+        <th>F2 + BUTTON</th>
+        <th>WAVEFORM</th>
+        <th>TYPE</th>
+    </tr>
+    <tr><td>1</td><td>SAW</td><td>Analog</td></tr>
+    <tr><td>2</td><td>SINE</td><td>Analog</td></tr>
+    <tr><td>3</td><td>FM_EPIANO</td><td>FM Synthesis</td></tr>
+    <tr><td>4</td><td>FM_HX7</td><td>FM Synthesis</td></tr>
+    <tr><td>5</td><td>STRINGS</td><td>Sample</td></tr>
+    <tr><td>6</td><td>JUNO_POLY</td><td>Hybrid</td></tr>
+    <tr><td>7</td><td>RANDOM</td><td>Generator</td></tr>
+</table>
+
+<h3>Method 2: Browse All Sounds</h3>
+<ol>
+    <li>Press <span class="inline-code f2">F2</span> to enter <strong>Effects</strong> menu</li>
+    <li>Press Joystick UP to enter the <strong>Sounds</strong> menu</li>
+    <li>Use Joystick LEFT/RIGHT to browse all available Sounds</li>
+    <li>Display shows Sound name and preview</li>
+    <li>Press <span class="inline-code f2">F2</span> again to exit</li>
+</ol>
+
+<h3>All Available Waveforms</h3>
+
+<h4>Analog Waveforms</h4>
+<ul>
+    <li><strong>SINE</strong> — Pure fundamental tone</li>
+    <li><strong>SAW</strong> — Bright, harmonically rich</li>
+    <li><strong>TRIANGLE</strong> — Soft, mellow</li>
+    <li><strong>SQUARE</strong> — Hollow, 8-bit character</li>
+</ul>
+
+<h4>FM Synthesis</h4>
+<ul>
+    <li><strong>FM_EPIANO</strong> — Electric piano (Rhodes-style)</li>
+    <li><strong>FM_HX7</strong> — DX7-style digital synthesis</li>
+    <li><strong>FM_BELL</strong> — Bell tones</li>
+    <li><strong>FM_ORGAN</strong> — Organ tones</li>
+    <li><strong>FM_BRASS</strong> — Brass section</li>
+</ul>
+
+<h4>Sample Playback</h4>
+<ul>
+    <li><strong>SAMPLE_STRINGS</strong> — Orchestral strings</li>
+    <li><strong>SAMPLE_CLARINET</strong> — Woodwind clarinet</li>
+    <li><strong>SAMPLE_CELLOS</strong> — Cello section</li>
+    <li><strong>SAMPLE_ACOUSTIC</strong> — Acoustic guitar</li>
+    <li><strong>SAMPLE_BRASS</strong> — Brass ensemble</li>
+    <li><strong>SAMPLE_PIANO_UPRIGHT</strong> — Upright piano</li>
+    <li><strong>SAMPLE_VIBRAPHONE</strong> — Vibraphone/marimba</li>
+    <li><strong>SAMPLE_VIOLINS</strong> — Violin section</li>
+    <li><strong>SAMPLE_VOX_AHH</strong> — Vocal "ahh" sounds</li>
+    <li><strong>SAMPLE_WURLI</strong> — Wurlitzer electric piano</li>
+    <li><strong>SAMPLE_MIC_CUSTOM</strong> <span style="color: #f59e0b;">[Batch 4+]</span> — User-recorded sample (see MIC_SAMPLE mode)</li>
+</ul>
+
+<h4>Hybrid Presets</h4>
+<ul>
+    <li><strong>SAWSQUARE</strong> — Layered saw + square waves</li>
+    <li><strong>JUNO_POLY</strong> — Juno-106 style polysynth pad</li>
+    <li><strong>OCEAN_PAD</strong> — Ambient soundscape (noise + FM)</li>
+    <li><strong>WOBBLE_BASS</strong> — LFO-modulated bass sound</li>
+</ul>
+
+
+<div class="section-divider"></div>
+
+<h2 id="section03">03 // EFFECTS MENU</h2>
+
+<h3>Accessing Effects</h3>
+<ol>
+    <li>Press <span class="inline-code f2">F2</span> to enter <strong>Effects</strong> menu</li>
+    <li>Use Joystick LEFT/RIGHT to cycle through Effects</li>
+    <li>Display shows current Effect name (e.g., "< DELAY >")</li>
+    <li>Use Joystick DOWN to adjust/toggle the selected Effect</li>
+    <li>Press Joystick UP to enter the <strong>Sounds</strong> menu</li>
+    <li>Press <span class="inline-code f2">F2</span> again or wait 5 seconds to exit</li>
+</ol>
+
+
+<h3>Effect Descriptions</h3>
+
+<div class="mode-card">
+<h4 id="effect-reverb">REVERB</h4>
+<p>Stereo reverb processor with 65-75% feedback for spacious ambience. Creates room/hall simulation with independent left/right processing. When <REVERB> is selected, Joystick DOWN toggles ON/OFF.</p>
+</div>
+
+<div class="mode-card">
+<h4>GLIDE</h4>
+<p>Portamento effect — smooth pitch glide between notes. When enabled, oscillator frequencies slide from previous note to new note instead of jumping instantly. When <GLIDE> is selected, Joystick DOWN toggles ON/OFF.</p>
+</div>
+
+<div class="mode-card">
+<h4 id="effect-delay">DELAY</h4>
+<p>Stereo delay line (max ~1 second) with tempo synchronization. Automatically adjusts delay time to match BPM setting. When <DELAY> is selected, Joystick DOWN cycles through rates:</p>
+<ul>
+    <li>OFF</li>
+    <li>1/4 (quarter note)</li>
+    <li>1/8 (eighth note)</li>
+    <li>1/16 (sixteenth note)</li>
+    <li>1/16T (triplets)</li>
+    <li>1/32 (thirty-second note)</li>
+</ul>
+</div>
+
+<div class="mode-card">
+<h4>TREMOLO</h4>
+<p>Amplitude modulation. When <TREMOLO> is selected, Joystick DOWN cycles through rates (same divisions as DELAY). Depth is preset.</p>
+</div>
+
+<div class="mode-card">
+<h4>STEREO</h4>
+<p>Stereo width control. When ON, oscillators are panned across stereo field with layered voices detuned and panned opposite for width. When OFF, all voices sum to mono center. When <STEREO> is selected, Joystick DOWN toggles ON (wide) / OFF (mono).</p>
+</div>
+
+<div class="mode-card">
+<h4>VOICE</h4>
+<p>Voice count/polyphony. When <VOICE> is selected, Joystick DOWN cycles:</p>
+<ul>
+    <li>VOICE1 (mono)</li>
+    <li>VOICE2 (2 voices)</li>
+    <li>VOICE4 (4 voices)</li>
+    <li>VOICE8 (8 voices - full polyphony)</li>
+</ul>
+</div>
+
+<div class="mode-card">
+<h4>ADSR</h4>
+<p>Envelope shape presets. When <ADSR> is selected, Joystick DOWN cycles:</p>
+<ul>
+    <li>LONG — Slow attack/release</li>
+    <li>SHORT — Fast attack/release</li>
+    <li>SWELL — Slow attack, sustained</li>
+    <li>PLUCK — Percussive, short decay</li>
+    <li>TOUCH — Medium attack, expressive</li>
+    <li>SUSTAIN — Full sustain, long release</li>
+</ul>
+</div>
+
+<div class="mode-card">
+<h4>BASS</h4>
+<p>Sub-bass oscillator. When <BASS> is selected, Joystick DOWN cycles:</p>
+<ul>
+    <li>OFF — No bass</li>
+    <li>ROOT — Bass plays root note</li>
+    <li>SLASH — Custom bass note (slash chord)</li>
+</ul>
+</div>
+
+<div class="mode-card">
+<h4 id="effect-filter">FILTER</h4>
+<p>State variable lowpass filter with adjustable cutoff frequency (600-18000 Hz). Smoothly attenuates frequencies above cutoff point. When <FILTER> is selected, Joystick DOWN toggles ON/OFF.</p>
+<p>Adjust cutoff: Hold <span class="inline-code f3">F3</span> and move Volume Knob (filter mode engages automatically, then Joystick UP/DOWN also adjusts cutoff)</p>
+</div>
+
+<div class="mode-card">
+<h4 id="effect-flanger">FLANGER</h4>
+<p>LFO-modulated delay line creating classic jet-plane sweeping effect. Uses stereo processing with configurable feedback, depth, and modulation rate. When <FLANGER> is selected, Joystick DOWN toggles ON/OFF.</p>
+</div>
+
+<div class="mode-card">
+<h4>MIDI</h4>
+<p>MIDI output toggle. When <MIDI> is selected, Joystick DOWN enables/disables MIDI note output via USB-C.</p>
+</div>
+
+<div class="mode-card">
+<h4 id="effect-chorus">CHORUS</h4>
+<p>Stereo chorus with 0.5Hz LFO modulation, creating rich detuned doubling effect. Left/right channels use slightly different LFO frequencies (0.5Hz vs 0.52Hz) for natural stereo width. Famous Juno-style chorus sound. When <CHORUS> is selected, Joystick DOWN toggles ON/OFF.</p>
+</div>
+
+<div class="mode-card">
+<h4>MAJ/MIN</h4>
+<p>Major/Minor mode toggle. When <MAJ/MIN> is selected, Joystick DOWN switches between Major scale harmony and Natural Minor scale harmony.</p>
+</div>
+
+<div class="mode-card">
+<h4 id="effect-voicelead">VOICE LEAD</h4>
+<p>Voice leading mode. When ON, HiChord automatically selects inversions to minimize melodic motion between chord changes. The system intelligently chooses root position, 1st inversion, or 2nd inversion for each chord to create smooth voice leading. When <VOICE LEAD> is selected, Joystick DOWN toggles ON/OFF.</p>
+</div>
+
+<div class="mode-card">
+<h4>JOYSTICK</h4>
+<p>Displays current joystick chord modification mode (DEFAULT or EXTENDED).</p>
+<p><strong>To toggle modes:</strong> Navigate to JOYSTICK using Joystick LEFT/RIGHT, then press Joystick DOWN to switch between DEFAULT and EXTENDED mode.</p>
+<p>See <a href="#section01">Basic Operation</a> section for full chord modification table.</p>
+</div>
+
+<div class="mode-card">
+<h4>USB_MODE</h4>
+<p>USB-C mode selector. Displays current USB configuration:</p>
+<ul>
+    <li><strong>AUDIO</strong> — USB-C sends audio to computer (class-compliant, no drivers needed)</li>
+    <li><strong>MIDI</strong> — USB-C sends MIDI note data</li>
+    <li><strong>SWITCHABLE</strong> — Firmware supports switching between modes</li>
+</ul>
+<p><strong>To switch modes (SWITCHABLE firmware only):</strong> Navigate to USB_MODE using Joystick LEFT/RIGHT, then press Joystick DOWN to toggle between AUDIO and MIDI modes. Device will briefly disconnect and reconnect to your computer.</p>
+</div>
+
+<h3>Randomize Functions</h3>
+<p>HiChord includes three randomization features for creative sound design, all triggered via Joystick CLICK:</p>
+
+<p><strong>Random Sound</strong> (Waveform Only):</p>
+<ul>
+    <li>Press <span class="inline-code f2">F2</span> to enter <strong>Effects</strong> menu</li>
+    <li>Press Joystick CLICK (center press)</li>
+    <li>Displays "Random Sound" with dice animation</li>
+    <li>Generates a random waveform from all available sounds (analog, FM, samples, hybrids)</li>
+    <li>Keeps all current effects and settings intact</li>
+    <li>Perfect for exploring new timbres</li>
+</ul>
+
+<p><strong>Random All</strong> (Complete Preset):</p>
+<ul>
+    <li>Press <span class="inline-code f1">F1</span> to enter <strong>Settings</strong> menu</li>
+    <li>Press Joystick CLICK (center press)</li>
+    <li>Displays "Random All" with dice animation</li>
+    <li>Generates completely random preset: waveform, effects, arpeggio pattern, rhythm rate, key, BPM, inversions</li>
+    <li>Great for happy accidents and inspiration</li>
+</ul>
+
+<p><strong>Random Pattern</strong> (Arpeggio/Sequencer Only):</p>
+<ul>
+    <li>Press <span class="inline-code f3">F3</span> to enter <strong>Mode</strong> menu</li>
+    <li>Press Joystick CLICK (center press)</li>
+    <li>Displays "Random Pattern" with dice animation</li>
+    <li>Generates new random arpeggio pattern AND sequencer pattern</li>
+    <li>Keeps current waveform and effects</li>
+    <li>Automatically sets arpeggio to RANDOM pattern mode</li>
+</ul>
+
+<div class="section-divider"></div>
+
+<h2 id="section04">04 // AUDIO OUTPUT OPTIONS</h2>
+
+<div style="text-align: center; margin: 20px 0 24px 0;">
+    <img src="../../Manual Images/Top View.png" alt="HiChord Top View - Connections" style="max-width: min(350px, 100%); width: 100%; height: auto; border: 1px solid var(--border-light); border-radius: 3px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); margin: 0 auto;">
+    <p style="margin-top: 10px; font-size: 12px; color: var(--gray);"><strong>Top Panel:</strong> Power button (left), Volume/Control slider (center), Headphone/Line Out jack (right)</p>
+</div>
+
+<p>HiChord supports multiple audio output methods. You can use any or all of these simultaneously:</p>
+
+<h3>Built-in Speaker</h3>
+<p>Internal mono speaker for portable use. Automatically mutes when headphones are plugged in.</p>
+
+<h3>Headphone Jack (3.5mm)</h3>
+<p>Stereo headphone output. Plugging in headphones automatically disables the internal speaker.</p>
+
+<h3>Line Out / Aux Cable</h3>
+<p>Use the headphone jack to connect to any external speaker, mixer, or audio interface using a standard 3.5mm aux cable. Output level is controlled by the Volume Knob.</p>
+
+<div style="text-align: center; margin: 20px 0 24px 0;">
+    <img src="../../Manual Images/Side View.png" alt="HiChord Side View - USB-C Port" style="max-width: min(250px, 100%); width: 100%; height: auto; border: 1px solid var(--border-light); border-radius: 3px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); margin: 0 auto;">
+    <p style="margin-top: 10px; font-size: 12px; color: var(--gray);"><strong>Side Panel:</strong> USB-C port for audio, MIDI, and power</p>
+</div>
+
+<h3>USB-C Audio</h3>
+<p>High-quality digital audio over USB-C (class-compliant, no drivers needed):</p>
+<ul>
+    <li>Connect HiChord to your computer via USB-C</li>
+    <li>HiChord appears as an audio interface</li>
+    <li>Record directly into your DAW (Ableton, Logic, etc.)</li>
+    <li>Zero-latency digital quality</li>
+    <li>Stereo output</li>
+</ul>
+
+<h3>MIDI Over USB-C</h3>
+<p>Send MIDI note data to your computer:</p>
+<ul>
+    <li>Enable MIDI in <strong>F2</strong> menu (navigate to MIDI, press Joystick DOWN)</li>
+    <li>Connect to computer via USB-C</li>
+    <li>HiChord sends MIDI notes for all chord buttons and modifications</li>
+    <li>Use with software synths, samplers, or for recording MIDI</li>
+</ul>
+
+<div class="section-divider"></div>
+
+<h2 id="section05">05 // MODE MENU</h2>
+
+<p>HiChord has 14 different playing modes. There are two ways to change modes:</p>
+
+<h3>Method 1: Mode Menu (Full Access)</h3>
+<p>This method gives you access to all 14 modes and allows you to adjust mode-specific settings:</p>
+
+<ol>
+    <li>Press <span class="inline-code f3">F3</span> to open <strong>F3</strong> menu (shows BPM/tempo)</li>
+    <li>Press Joystick UP to enter <strong>Mode</strong> Menu</li>
+    <li>Use Joystick LEFT/RIGHT to cycle through all available modes</li>
+    <li>Display shows current mode name and settings</li>
+    <li>Mode changes take effect immediately as you navigate</li>
+    <li>Press Joystick DOWN to exit both submenu and menu</li>
+</ol>
+
+<div class="note-box">
+<strong>Note:</strong> When <strong>F3</strong> menu is open (before pressing Joystick UP), you can adjust BPM using Joystick LEFT/RIGHT. Press UP to enter Mode Selection instead.
+</div>
+
+<p><strong>Adjusting mode-specific parameters:</strong> Once in a mode, you can adjust its settings:</p>
+<ul>
+    <li><strong>STRUM:</strong> In STRUM mode, press F3 → UP → use LEFT/RIGHT to see strum speed, then use UP to cycle speeds (SLOW/MEDIUM/FAST)</li>
+    <li><strong>ARPEGGIO/REPEAT/DRUMLOOP/SEQUENCER:</strong> In these modes, press F3 → UP → use UP to cycle rhythm rates (1/4, 1/8, 1/16, 1/16T, 1/32)</li>
+    <li><strong>EARTRAINER:</strong> In EARTRAINER mode, press F3 → UP → use UP to cycle difficulty levels</li>
+</ul>
+
+<p><strong>All 14 modes accessible via <strong>Mode</strong> menu:</strong> ONESHOT, STRUM, LEAD, DRONE, ARPEGGIO, REPEAT, DRUMMODE, DRUMLOOPMODE, SEQUENCER, CHORDHIRO, EARTRAINER, TUNER <span style="color: #f59e0b;">[Batch 4+]</span>, MIC_SAMPLE <span style="color: #f59e0b;">[Batch 4+]</span></p>
+<div class="note-box">
+<strong>Note:</strong> AUTODRUM is not a selectable mode - it automatically activates when you press a Chord Button + move joystick while in DRUMMODE.
+</div>
+
+<h3>Method 2: Quick Mode Select (7 Most Common Modes)</h3>
+<p>Fastest method for the 7 most-used modes:</p>
+
+<p>Hold <span class="inline-code f3">F3</span>, then press a Chord Button for instant mode switching:</p>
+
+<table>
+    <tr>
+        <th>F3 + BUTTON</th>
+        <th>MODE</th>
+    </tr>
+    <tr><td>1</td><td>ONESHOT</td></tr>
+    <tr><td>2</td><td>STRUM</td></tr>
+    <tr><td>3</td><td>LEAD</td></tr>
+    <tr><td>4</td><td>DRONE</td></tr>
+    <tr><td>5</td><td>ARPEGGIO</td></tr>
+    <tr><td>6</td><td>REPEAT</td></tr>
+    <tr><td>7</td><td>DRUMMODE</td></tr>
+</table>
+
+<div class="note-box">
+<strong>Note:</strong> Quick Mode Select only accesses 7 modes. To access DRUMLOOPMODE, SEQUENCER, CHORDHIRO, EARTRAINER, TUNER, or MIC_SAMPLE, use Method 1 (<strong>Mode</strong> Menu with F3 → UP → LEFT/RIGHT).
+</div>
+
+<div class="section-divider"></div>
+
+<h2 id="section06">06 // MODE DESCRIPTIONS</h2>
+
+
+<div class="mode-card">
+<h3 id="mode-oneshot">ONESHOT</h3>
+<p><strong>Function:</strong> Standard polyphonic chord triggering with ADSR envelope.</p>
+<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button 1</p>
+<p><strong>Operation:</strong> Hold Chord Button → chord plays → release → envelope releases</p>
+</div>
+
+<div class="mode-card">
+<h3 id="mode-strum">STRUM</h3>
+<p><strong>Function:</strong> Guitar strumming simulation.</p>
+<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button 2</p>
+<p><strong>Operation:</strong> Hold Chord Button → notes trigger sequentially with timing delay</p>
+<p><strong>Strum Speed:</strong> Press <span class="inline-code f3">F3</span> to enter <strong>Mode</strong> menu, then use Joystick UP to cycle through speeds</p>
+<ul>
+    <li>SLOW (200ms between notes)</li>
+    <li>MEDIUM (80ms)</li>
+    <li>FAST (40ms)</li>
+</ul>
+</div>
+
+<div class="mode-card">
+<h3 id="mode-lead">LEAD</h3>
+<p><strong>Function:</strong> Monophonic single-note mode for melodies.</p>
+<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button 3</p>
+<p><strong>Operation:</strong> Only plays root note of each Chord Button. New notes cut off previous notes.</p>
+<p><strong>Display:</strong> Shows note names (C, D, E...) instead of chord names</p>
+</div>
+
+<div class="mode-card">
+<h3 id="mode-drone">DRONE</h3>
+<p><strong>Function:</strong> Infinite sustain mode.</p>
+<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button 4</p>
+<p><strong>Operation:</strong> Hold Chord Button → sound continues indefinitely until another chord button is pressed</p>
+</div>
+
+<div class="mode-card">
+<h3 id="mode-arpeggio">ARPEGGIO</h3>
+<p><strong>Function:</strong> Automatic arpeggiated patterns, tempo-synced.</p>
+<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button 5</p>
+<p><strong>Operation:</strong> Hold Chord Button → notes play in sequence automatically</p>
+
+<p><strong>Pattern Selection:</strong> <span class="inline-code f1">F1</span> + Chord Buttons 1-5:</p>
+<ul>
+    <li>Chord Button 1: UP (ascending)</li>
+    <li>Chord Button 2: DOWN (descending)</li>
+    <li>Chord Button 3: UP/DOWN (ascend then descend)</li>
+    <li>Chord Button 4: RANDOM</li>
+    <li>Chord Button 5: FINGERPICK</li>
+</ul>
+
+<p><strong>Chord Mode:</strong> <span class="inline-code f1">F1</span> + Chord Buttons 6-7 cycles:</p>
+<ul>
+    <li>ARP_ONLY — Just arpeggio</li>
+    <li>CHORD+ARP — Sustained chord with arpeggio on top</li>
+    <li>RHYTHM+ARP — Rhythmic chord stabs with arpeggio</li>
+</ul>
+
+<p><strong>Rhythm Rate:</strong> Press <span class="inline-code f3">F3</span> to enter <strong>Mode</strong> menu, then use Joystick UP to cycle through rates (1/4, 1/8, 1/16, 1/16T, 1/32)</p>
+</div>
+
+<div class="mode-card">
+<h3>REPEAT</h3>
+<p><strong>Function:</strong> Rhythmic gating/stuttering effect.</p>
+<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button 6</p>
+<p><strong>Operation:</strong> Chord repeats at selected rhythm rate (set via <span class="inline-code f3">F3</span> + Joystick UP)</p>
+</div>
+
+<div class="mode-card">
+<h3 id="mode-drummode">DRUMMODE</h3>
+<p><strong>Function:</strong> Manual drum triggering.</p>
+<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button 7</p>
+<p><strong>Operation:</strong> Each Chord Button triggers a different drum sound:</p>
+<ul>
+    <li>Chord Button 1: Kick</li>
+    <li>Chord Button 2: Snare</li>
+    <li>Chord Button 3: Hi-hat</li>
+    <li>Chord Button 4: Tom</li>
+    <li>Chord Button 5: Bell/Ride</li>
+    <li>Chord Button 6-7: Additional percussion</li>
+</ul>
+
+<p><strong>Drum Kits:</strong> <span class="inline-code f2">F2</span> + Chord Buttons 1-5:</p>
+<ul>
+    <li>Chord Button 1: 808 (deep sub kick)</li>
+    <li>Chord Button 2: 909 (punchy techno)</li>
+    <li>Chord Button 3: LINN (warm vintage)</li>
+    <li>Chord Button 4: CR78 (vintage analog)</li>
+    <li>Chord Button 5: TRAP (ultra sub bass)</li>
+</ul>
+</div>
+
+<div class="mode-card">
+<h3>DRUMLOOPMODE</h3>
+<p><strong>Function:</strong> Pre-programmed drum patterns with variations.</p>
+<p><strong>Access:</strong> <span class="inline-code f3">F3</span> → Joystick UP → LEFT/RIGHT to select DRUMLOOPMODE</p>
+<p><strong>Operation:</strong></p>
+<ul>
+    <li>Chord Buttons 1-7: Select and toggle patterns (0-6) on/off</li>
+    <li>Hold chord button + Joystick UP/DOWN: Select variation (0-7)</li>
+    <li>Joystick LEFT/RIGHT (no button held): Switch drum kits</li>
+</ul>
+
+<p><strong>7 Patterns:</strong></p>
+<ul>
+    <li>Chord Button 1 (Pattern 0): ROCK</li>
+    <li>Chord Button 2 (Pattern 1): DISCO</li>
+    <li>Chord Button 3 (Pattern 2): REGGAE</li>
+    <li>Chord Button 4 (Pattern 3): FUNK</li>
+    <li>Chord Button 5 (Pattern 4): HIP-HOP</li>
+    <li>Chord Button 6 (Pattern 5): ELECTRO</li>
+    <li>Chord Button 7 (Pattern 6): JAZZ</li>
+</ul>
+
+<p><strong>8 Variations per pattern:</strong></p>
+<ul>
+    <li>0: Original</li>
+    <li>1: Ghost notes</li>
+    <li>2: Busier hi-hats</li>
+    <li>3: Syncopated kicks</li>
+    <li>4: Fills every 4th bar</li>
+    <li>5: Half-time</li>
+    <li>6: Double-time</li>
+    <li>7: Complex/jazz variation</li>
+</ul>
+
+<div class="note-box critical">
+Drum loops persist across mode changes. You can start a drum loop, switch to ONESHOT or ARPEGGIO mode, and play chords over the drums.
+</div>
+</div>
+
+<div class="mode-card">
+<h3>AUTODRUM</h3>
+<p><strong>Function:</strong> Rhythm-controlled drum triggering mode (automatically activated from DRUMMODE).</p>
+<p><strong>How it works:</strong></p>
+<ul>
+    <li>In DRUMMODE, press any Chord Button (1-7) and move the joystick → automatically enters AUTODRUM</li>
+    <li>Release joystick → returns to DRUMMODE</li>
+</ul>
+
+<p><strong>Rhythm Rate Control (while holding chord button + joystick):</strong></p>
+<ul>
+    <li>Joystick UP: 1/4 note</li>
+    <li>Joystick RIGHT: 1/8 note</li>
+    <li>Joystick DOWN: 1/16 note</li>
+    <li>Joystick LEFT: 1/32 note</li>
+    <li>Joystick UP-RIGHT: Swing 8th</li>
+    <li>Joystick DOWN-RIGHT: Swing 16th</li>
+    <li>Joystick DOWN-LEFT: 1/16 triplet</li>
+    <li>Joystick UP-LEFT: Swing 8th</li>
+</ul>
+
+<div class="note-box">
+<strong>Note:</strong> AUTODRUM is not a standalone mode you select from the <strong>Mode</strong> menu. It's a temporary state that activates when you use DRUMMODE with joystick control, allowing you to set precise rhythm rates for drum triggers.
+</div>
+</div>
+
+<div class="mode-card">
+<h3>SEQUENCER</h3>
+<p><strong>Function:</strong> 16-step chord sequencer.</p>
+<p><strong>Access:</strong> <span class="inline-code f3">F3</span> → Joystick UP → LEFT/RIGHT to select SEQUENCER</p>
+<p><strong>Recording:</strong></p>
+<ol>
+    <li>Enter SEQUENCER mode (in RECORD by default)</li>
+    <li>Press Chord Buttons in desired order (up to 16 steps)</li>
+    <li>Display shows step count</li>
+</ol>
+
+<p><strong>Playback:</strong></p>
+<ul>
+    <li>Joystick CLICK: Start/stop playback</li>
+    <li>Syncs to BPM and current rhythm rate</li>
+</ul>
+
+<p><strong>Editing:</strong></p>
+<ul>
+    <li>Joystick LEFT/RIGHT: Navigate steps</li>
+    <li>Press Chord Button to change chord at current step</li>
+</ul>
+
+<p><strong>Sequence Length:</strong> <span class="inline-code f1">F1</span> + Joystick LEFT/RIGHT (4-16 steps)</p>
+</div>
+
+<div class="mode-card">
+<h3>CHORDHIRO</h3>
+<p><strong>Function:</strong> Rhythm game for learning chord progressions (Guitar Hero style).</p>
+<p><strong>Access:</strong> <span class="inline-code f3">F3</span> → Joystick UP → LEFT/RIGHT to select CHORDHIRO</p>
+<p><strong>Operation:</strong></p>
+<ol>
+    <li>Press <span class="inline-code f2">F2</span> to select song</li>
+    <li>Joystick UP/DOWN browses songs</li>
+    <li>Click to confirm</li>
+    <li>Press <span class="inline-code f3">F3</span> to start countdown</li>
+    <li>Play chords when notes reach hit zone</li>
+</ol>
+
+<p><strong>Scoring:</strong></p>
+<ul>
+    <li>PERFECT (±50ms on EXPERT)</li>
+    <li>GREAT</li>
+    <li>OK</li>
+    <li>MISS</li>
+</ul>
+
+<p><strong>Difficulty Levels:</strong></p>
+<ul>
+    <li>EASY: ±200ms timing window</li>
+    <li>MEDIUM: ±150ms</li>
+    <li>HARD: ±100ms</li>
+    <li>EXPERT: ±50ms</li>
+</ul>
+</div>
+
+<div class="mode-card">
+<h3>EARTRAINER</h3>
+<p><strong>Function:</strong> Train ear to recognize chords.</p>
+<p><strong>Access:</strong> <span class="inline-code f3">F3</span> → Joystick UP → LEFT/RIGHT to select EARTRAINER</p>
+<p><strong>Operation:</strong></p>
+<ol>
+    <li>HiChord plays root note, then a chord</li>
+    <li>Press Chord Button (1-7) to guess</li>
+    <li>Immediate feedback (correct/incorrect)</li>
+</ol>
+
+<p><strong>Difficulty:</strong> Joystick UP/DOWN changes level:</p>
+<ul>
+    <li>BASIC: Simple triads</li>
+    <li>EXTENDED: Includes 7ths, sus, aug, dim</li>
+    <li>PROGRESSION: 2-4 chord progressions</li>
+    <li>PROG+EXTENDED: Complex progressions</li>
+</ul>
+
+<p><strong>Controls during training:</strong></p>
+<ul>
+    <li><span class="inline-code f1">F1</span>: Replay chord</li>
+    <li><span class="inline-code f2">F2</span>: Replay root note</li>
+</ul>
+</div>
+
+<div class="mode-card">
+<h3>TUNER <span style="color: #f59e0b;">[Batch 4+]</span></h3>
+<p><strong>Function:</strong> Chromatic tuner with visual feedback.</p>
+<p><strong>Access:</strong> <span class="inline-code f3">F3</span> → Joystick UP → LEFT/RIGHT to select TUNER</p>
+<p><strong>Operation:</strong></p>
+<ol>
+    <li>Connect instrument to HiChord input</li>
+    <li>Play note</li>
+    <li>Display shows:
+        <ul>
+            <li>Note name and octave</li>
+            <li>Cents sharp/flat (±50¢)</li>
+            <li>Frequency in Hz</li>
+            <li>Visual needle indicator</li>
+        </ul>
+    </li>
+    <li>Tune until needle centers at 0¢</li>
+</ol>
+
+<!-- OLED TUNER DISPLAY -->
+<div style="text-align: center; margin: 30px 0;">
+    <div class="oled-display" style="margin: 0 auto;">
+<pre>┌──────────────────────────────┐
+│         A4                   │
+│       440.0 Hz               │
+│                              │
+│  ◄──────┼──────►            │
+│         0¢                   │
+└──────────────────────────────┘</pre>
+    </div>
+    <div class="oled-label">Tuner Display (showing A4 in tune at 440 Hz)</div>
+</div>
+</div>
+
+<div class="mode-card">
+<h3>MIC_SAMPLE <span style="color: #f59e0b;">[Batch 4+]</span></h3>
+<p><strong>Function:</strong> Record custom samples from microphone/line input.</p>
+<p><strong>Access:</strong> <span class="inline-code f3">F3</span> → Joystick UP → LEFT/RIGHT to select MIC_SAMPLE</p>
+<p><strong>Operation:</strong></p>
+<ol>
+    <li>Enter MIC_SAMPLE mode</li>
+    <li>Display shows microphone icon and instructions</li>
+    <li>Press <strong>Chord Button 1</strong> to start recording (~1 second)</li>
+    <li>Display shows "RECORDING..."</li>
+    <li>After recording, automatic pitch detection runs</li>
+    <li>Display shows detected pitch</li>
+    <li>Joystick UP/DOWN: Fine-tune pitch (±semitones) if needed</li>
+    <li>Press <strong>Chord Button 1</strong> again to save and use sample</li>
+    <li>Sample saved to QSPI flash (persists across power cycles)</li>
+    <li>Waveform automatically set to SAMPLE_MIC_CUSTOM</li>
+    <li>Mode switches to ONESHOT</li>
+    <li>Play Chord Buttons to hear your sample at different pitches!</li>
+</ol>
+
+<div class="note-box">
+Sample specs: ~1 second max, 48kHz 16-bit mono, stored in non-volatile flash
+</div>
+</div>
+
+<div class="section-divider"></div>
+
+<h2 id="section07">07 // LOOPER</h2>
+
+<div class="note-box critical">
+<strong>IMPORTANT:</strong> The looper is controlled entirely by the JOYSTICK. No function buttons are needed!
+</div>
+
+<p><strong>Capacity:</strong> 2 independent tracks (~20 seconds each)</p>
+
+<h3>Getting Started with the Looper</h3>
+<p>The looper is always available and ready to use. To start recording:</p>
+<ol>
+    <li>Press Joystick CLICK to activate the looper → enters WAITING state</li>
+    <li>In WAITING state, optionally adjust bar count (0-8) using Joystick LEFT/RIGHT</li>
+    <li>Press Joystick CLICK again to start recording</li>
+    <li>The looper cycles through states: OFF → WAITING → RECORD → LOOP → OFF</li>
+</ol>
+
+<h3>Mode Compatibility</h3>
+<p><strong>Looper works in all modes EXCEPT SEQUENCER:</strong></p>
+<ul>
+    <li>ONESHOT, STRUM, LEAD, DRONE, ARPEGGIO, REPEAT — Record chords and melodies</li>
+    <li>DRUMMODE, DRUMLOOPMODE, AUTODRUM — Record drum performances</li>
+    <li>CHORDHIRO, EARTRAINER — Record practice sessions</li>
+    <li>TUNER, MIC_SAMPLE — Looper not needed in these modes</li>
+</ul>
+
+<p><strong>Note:</strong> SEQUENCER mode has built-in recording, so the looper is disabled. However, when you leave SEQUENCER mode while a sequence is playing, it automatically bounces to an available looper track.</p>
+
+<h3>Track Selection</h3>
+<p><strong>Non-drum modes:</strong> Joystick LEFT/RIGHT to switch between Track 1 and Track 2</p>
+<p><strong>Drum modes:</strong> Joystick UP/DOWN to switch between Track 1 and Track 2</p>
+
+<h3>Recording Track 1 (First Track)</h3>
+<ol>
+    <li><strong>Start:</strong> Press Joystick CLICK → cycles OFF → WAITING</li>
+    <li><strong>Adjust bars (optional):</strong> In WAITING state, Joystick LEFT/RIGHT sets bar count
+        <ul>
+            <li>0 = Free mode (no bar limit)</li>
+            <li>1-8 = Fixed bars (recording stops automatically)</li>
+        </ul>
+    </li>
+    <li><strong>Begin recording:</strong> Press Joystick CLICK again
+        <ul>
+            <li>Free mode: Recording starts immediately</li>
+            <li>Bar mode: Pre-roll metronome counts in 4 beats first</li>
+        </ul>
+    </li>
+    <li><strong>Record:</strong> Play chords or drums</li>
+    <li><strong>Stop:</strong> Press Joystick CLICK (or auto-stops at bar count)</li>
+    <li><strong>Playback:</strong> Loop plays automatically</li>
+</ol>
+
+<h3>Recording Track 2 (Second Track / Overdubbing)</h3>
+<ol>
+    <li><strong>Prerequisite:</strong> Track 1 must be looping first</li>
+    <li><strong>Switch tracks:</strong> Joystick LEFT/RIGHT (or UP/DOWN in drum modes)</li>
+    <li><strong>Start:</strong> Press Joystick CLICK → cycles OFF → WAITING</li>
+    <li><strong>Begin recording:</strong> Press Joystick CLICK again
+        <ul>
+            <li>Recording syncs automatically to Track 1's loop start</li>
+            <li>Length matches Track 1 (bar count not adjustable)</li>
+        </ul>
+    </li>
+    <li><strong>Record:</strong> Play additional chords or drums</li>
+    <li><strong>Stop/Loop:</strong> Press Joystick CLICK to cycle RECORD → LOOP → OFF</li>
+</ol>
+
+<h3>Stopping and Clearing</h3>
+<ul>
+    <li><strong>Clear a track:</strong> Press Joystick CLICK repeatedly until reaching OFF state</li>
+    <li><strong>Clear all:</strong> When Track 1 goes OFF, Track 2 is automatically cleared too</li>
+</ul>
+
+<h3>Metronome</h3>
+<p>Metronome is enabled by default during looper recording.</p>
+<p>Provides audible click track during recording (tempo from BPM setting).</p>
+
+<h3>Automatic Sequencer Bouncing</h3>
+<p><strong>Special feature:</strong> When you leave SEQUENCER mode while a sequence is playing, HiChord automatically bounces it to the looper!</p>
+
+<p><strong>How it works:</strong></p>
+<ol>
+    <li>In SEQUENCER mode, record your chord progression</li>
+    <li>Press Joystick CLICK to start playback</li>
+    <li>While playing, press <span class="inline-code f3">F3</span> and switch to another mode (ONESHOT, ARPEGGIO, etc.)</li>
+    <li>HiChord automatically captures the full sequence pattern to an available looper track</li>
+    <li>Sequence now plays from the looper, freeing you to play live chords or melodies over it</li>
+</ol>
+
+<p><strong>Requirements:</strong></p>
+<ul>
+    <li>At least one looper track must be empty (OFF state)</li>
+    <li>Sequence must be playing when you change modes</li>
+    <li>Bounce captures the entire sequence length</li>
+</ul>
+
+<h3>Automatic Drum Loop Bouncing</h3>
+<p><strong>Special feature:</strong> When you leave DRUMLOOPMODE while a drum loop is playing, HiChord automatically bounces it to the looper!</p>
+
+<p><strong>How it works:</strong></p>
+<ol>
+    <li>Start a drum loop in DRUMLOOPMODE (Joystick UP/DOWN and LEFT/RIGHT to select pattern)</li>
+    <li>Press <span class="inline-code f3">F3</span> to enter <strong>Mode</strong> menu</li>
+    <li>Switch to any other mode (ONESHOT, STRUM, ARPEGGIO, etc.)</li>
+    <li>HiChord automatically captures the full 16-step drum pattern to an available looper track (Track 1 or Track 2)</li>
+    <li>Drum loop now plays from the looper, freeing you to play chords over it</li>
+    <li>You can record a second track for overdubbing</li>
+</ol>
+
+<div class="note-box">
+<strong>Why this is useful:</strong> This lets you quickly build layered productions - start with drums in DRUMLOOPMODE, switch modes to capture them, then layer chords and melodies on top using the looper's second track!
+</div>
+
+<p><strong>Requirements:</strong></p>
+<ul>
+    <li>At least one looper track must be empty (OFF state)</li>
+    <li>Drum loop must be playing when you change modes</li>
+    <li>Bounce happens automatically at the loop boundary (step 0)</li>
+</ul>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 30px 0; max-width: 100%;">
+    <!-- Normal Chord Display -->
+    <div>
+        <div class="oled-display">
+<pre>┌──────────────────────────────┐
+│ ◯ C Major                    │
+│ ①                            │
+│ ONESHOT       Key: C         │
+│ ● ○           BPM: 120       │
+└──────────────────────────────┘</pre>
+        </div>
+        <div class="oled-label">Main Display (Chord Button 1, C Major, Track 1 looping)</div>
+    </div>
+
+    <!-- Looper Waiting -->
+    <div>
+        <div class="oled-display">
+<pre>┌──────────────────────────────┐
+│ WAITING                      │
+│──────────────────────────────│
+│ 4    BARS     <>             │
+│                              │
+└──────────────────────────────┘</pre>
+        </div>
+        <div class="oled-label">Looper WAITING (use LEFT/RIGHT to adjust bars)</div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<h2 id="section08">08 // USER PRESETS</h2>
+
+<p>Save your own custom sound configurations to 2 user preset slots. These are separate from the built-in hybrid presets (JUNO_POLY, OCEAN_PAD, etc.) and allow you to store your exact settings.</p>
+
+<p><strong>Capacity:</strong> 2 user preset slots (P1 and P2)</p>
+
+<h3>Saving Preset</h3>
+<ol>
+    <li>Configure desired sound (waveform, effects, ADSR, etc.)</li>
+    <li>Press <span class="inline-code f2">F2</span> + <span class="inline-code f3">F3</span> simultaneously</li>
+    <li>Display shows <strong>Preset</strong> menu with P1 and P2 slots</li>
+    <li>Joystick LEFT/RIGHT: Select slot (P1 or P2)</li>
+    <li>Joystick UP to save to selected slot</li>
+    <li>Display shows "SAVED PRESET 1" (or 2) confirmation</li>
+</ol>
+
+<h3>Loading Preset</h3>
+<ol>
+    <li>Press <span class="inline-code f2">F2</span> + <span class="inline-code f3">F3</span></li>
+    <li>Joystick LEFT/RIGHT: Select slot (P1 or P2)</li>
+    <li>Joystick DOWN to load selected slot</li>
+    <li>Display shows "LOADED PRESET 1" (or 2) confirmation</li>
+    <li>All settings restored instantly</li>
+</ol>
+
+<div class="note-box">
+<strong>Menu Navigation:</strong> LEFT/RIGHT selects which preset slot (P1 or P2), UP saves to that slot, DOWN loads from that slot. Slots marked with * have saved presets.
+</div>
+
+<h3>What Gets Saved</h3>
+<ul>
+    <li>Current waveform</li>
+    <li>All effect states (on/off)</li>
+    <li>Effect parameters</li>
+    <li>ADSR preset</li>
+    <li>Arpeggio pattern and mode</li>
+    <li>Key shift</li>
+    <li>Glide setting</li>
+    <li>Inversions per chord button</li>
+    <li>Octave shifts per chord button</li>
+    <li>Mode state</li>
+    <li>Custom ADSR times (if set)</li>
+    <li>Random waveform configuration (if using RANDOM)</li>
+</ul>
+
+<!-- OLED PRESET MENU -->
+<div style="text-align: center; margin: 30px 0;">
+    <div class="oled-display" style="margin: 0 auto;">
+<pre>┌──────────────────────────────┐
+│       PRESETS                │
+│                              │
+│   ┌──────┐   ┌──────┐       │
+│   │  P1* │   │  P2  │       │
+│   └──────┘   └──────┘       │
+│    ▲ SAVE    ▼ LOAD         │
+└──────────────────────────────┘</pre>
+    </div>
+    <div class="oled-label">Preset Menu (P1 saved, indicated by *)</div>
+</div>
+
+<div class="section-divider"></div>
+
+<h2 id="section09">09 // ADVANCED CONTROLS</h2>
+
+<h3>Custom Envelope Shaping</h3>
+<p><strong>Attack Time:</strong> Hold <span class="inline-code f1">F1</span> + turn Volume Knob</p>
+<ul>
+    <li>Range: 1-2000ms</li>
+    <li>Only works when no chord is playing</li>
+    <li>Overrides ADSR preset</li>
+    <li>Display shows current attack value</li>
+</ul>
+
+<p><strong>Release Time:</strong> Hold <span class="inline-code f2">F2</span> + turn Volume Knob</p>
+<ul>
+    <li>Range: 1-5000ms</li>
+    <li>Only works when no chord is playing</li>
+    <li>Overrides ADSR preset</li>
+    <li>Display shows current release value</li>
+</ul>
+
+<h3>Custom Filter Cutoff</h3>
+<p><strong>Fine Control:</strong> Hold <span class="inline-code f3">F3</span> + turn Volume Knob</p>
+<ul>
+    <li>Range: 600-18000 Hz</li>
+    <li>Precise frequency adjustment</li>
+    <li>Display shows current cutoff frequency</li>
+</ul>
+
+<p><strong>Coarse Control:</strong> Hold <span class="inline-code f3">F3</span> + press Joystick UP/DOWN</p>
+<ul>
+    <li>Faster adjustment for quick changes</li>
+    <li>Same range as Volume Knob method</li>
+</ul>
+
+<h3>Battery Status <span style="color: #f59e0b;">[Batch 2+]</span></h3>
+<p>Hold <span class="inline-code f1">F1</span> + <span class="inline-code f2">F2</span>: Display shows battery voltage and percentage</p>
+
+<h3>Button Calibration <span style="color: #f59e0b;">[LEGACY FEATURE - Batches 1-3 ONLY]</span></h3>
+
+<div class="note-box critical">
+<strong>IMPORTANT - BATCH INFORMATION:</strong><br><br>
+<strong>Batch 4 and later:</strong> This feature is NOT AVAILABLE and will NEVER be needed. Batch 4+ hardware uses an improved button system that does not require calibration.<br><br>
+<strong>Batches 1-3 ONLY:</strong> Button calibration is available but RARELY needed. Only use this if your Chord Buttons are actively misfiring or not responding correctly.
+</div>
+
+<div class="note-box">
+<strong>Do you need this feature?</strong> Most users will NEVER need button calibration, even on Batches 1-3. This is a legacy troubleshooting feature for rare button issues on early hardware only.
+</div>
+
+<p><strong>For Batches 1-3 users experiencing button misfires:</strong></p>
+<ol>
+    <li>Power off the unit</li>
+    <li>Hold <span class="inline-code f1">F1</span> + <span class="inline-code f3">F3</span> together (NOT F2)</li>
+    <li>While holding, power on</li>
+    <li>Follow on-screen instructions to calibrate Chord Buttons</li>
+</ol>
+
+<div class="note-box critical">
+During calibration boot: Hold ONLY F1+F3. Do not press F2.
+</div>
+
+<div class="section-divider"></div>
+
+<h2 id="section10">10 // MUSIC THEORY REFERENCE</h2>
+
+<p style="color: var(--gray); font-style: italic;">This section explains the music theory behind HiChord's chord system. Beginners can skip this and return later!</p>
+
+<h3 id="theory-diatonic">Understanding the Diatonic Chord System</h3>
+
+<p>HiChord uses the <strong>Diatonic Chord System</strong> (also known as the Nashville Number System), a method of transcribing music by denoting chords according to the <em>scale degree</em> of their root note, rather than by chord name. This system allows musicians to transpose songs instantly to any key.</p>
+
+<h4>How It Works</h4>
+
+<p>In any major key, there are 7 notes in the scale. Each note becomes the root of a chord, numbered 1 through 7. The system uses Roman numerals to indicate the scale degree and chord quality:</p>
+
+<table>
+    <tr>
+        <th>BUTTON</th>
+        <th>SCALE DEGREE</th>
+        <th>CHORD QUALITY</th>
+        <th>FUNCTION</th>
+        <th>EXAMPLE IN C MAJOR</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>I (Tonic)</td>
+        <td>Major</td>
+        <td>Home chord, stable, resolves tension</td>
+        <td>C Major (C-E-G)</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>ii (Supertonic)</td>
+        <td>minor</td>
+        <td>Pre-dominant, leads to V or IV</td>
+        <td>D minor (D-F-A)</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>iii (Mediant)</td>
+        <td>minor</td>
+        <td>Tonic substitute, adds color</td>
+        <td>E minor (E-G-B)</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>IV (Subdominant)</td>
+        <td>Major</td>
+        <td>Pre-dominant, creates movement</td>
+        <td>F Major (F-A-C)</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>V (Dominant)</td>
+        <td>Major</td>
+        <td>Creates tension, wants to resolve to I</td>
+        <td>G Major (G-B-D)</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>vi (Submediant)</td>
+        <td>minor</td>
+        <td>Tonic substitute, deceptive resolution</td>
+        <td>A minor (A-C-E)</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>vii° (Leading Tone)</td>
+        <td>diminished</td>
+        <td>Creates strong pull to I, rarely used in pop</td>
+        <td>B diminished (B-D-F)</td>
+    </tr>
+</table>
+
+<div class="note-box">
+<strong>Why This Matters:</strong> When you press F1 and transpose to a different key, the chord button numbers stay the same, but the actual chord notes change. Chord Button 1 always plays the I chord, Chord Button 5 always plays V, etc. This means you can learn a progression in one key and instantly play it in any other key.
+</div>
+
+<h4>Common Progressions</h4>
+
+<p>The Diatonic Chord System makes famous chord progressions easy to recognize and play:</p>
+
+<ul>
+    <li><strong>I-V-vi-IV</strong> (Chord Buttons 1-5-6-4): "Axis of Awesome" progression — used in thousands of pop songs</li>
+    <li><strong>I-vi-IV-V</strong> (Chord Buttons 1-6-4-5): Classic '50s progression — "Stand By Me", doo-wop ballads</li>
+    <li><strong>ii-V-I</strong> (Chord Buttons 2-5-1): Jazz turnaround — fundamental to jazz harmony</li>
+    <li><strong>I-IV-V</strong> (Chord Buttons 1-4-5): Blues and rock foundation — 12-bar blues, rock 'n' roll</li>
+    <li><strong>vi-IV-I-V</strong> (Chord Buttons 6-4-1-5): Sensitive progression — emotional indie/alternative songs</li>
+</ul>
+
+<h3 id="theory-chords">Chord Type Reference</h3>
+
+<p>HiChord gives you instant access to 16+ chord types via joystick modifications. Here's what each chord type means and how it sounds:</p>
+
+<h4>Basic Triads</h4>
+
+<div class="mode-card">
+<h4>MAJOR</h4>
+<p><strong>Formula:</strong> Root + Major 3rd + Perfect 5th (Intervals: 4 semitones + 3 semitones)</p>
+<p><strong>Character:</strong> Bright, happy, stable. The "default" chord sound in Western music.</p>
+<p><strong>Example:</strong> C Major = C-E-G</p>
+<p><strong>Access:</strong> Default (no joystick modification)</p>
+</div>
+
+<div class="mode-card">
+<h4>MINOR</h4>
+<p><strong>Formula:</strong> Root + Minor 3rd + Perfect 5th (Intervals: 3 semitones + 4 semitones)</p>
+<p><strong>Character:</strong> Dark, sad, emotional. One semitone difference from major changes everything.</p>
+<p><strong>Example:</strong> C minor = C-Eb-G</p>
+<p><strong>Access:</strong> Default for Chord Buttons 2, 3, 6 (ii, iii, vi) in major mode</p>
+</div>
+
+<div class="mode-card">
+<h4>DIMINISHED</h4>
+<p><strong>Formula:</strong> Root + Minor 3rd + Diminished 5th (Intervals: 3 semitones + 3 semitones)</p>
+<p><strong>Character:</strong> Tense, unstable, dissonant. Creates strong pull to resolve.</p>
+<p><strong>Example:</strong> C diminished = C-Eb-Gb</p>
+<p><strong>Access:</strong> Joystick LEFT, or default on Chord Button 7 (vii°)</p>
+</div>
+
+<div class="mode-card">
+<h4>AUGMENTED</h4>
+<p><strong>Formula:</strong> Root + Major 3rd + Augmented 5th (Intervals: 4 semitones + 4 semitones)</p>
+<p><strong>Character:</strong> Dreamy, floating, symmetrical. Every note is 4 semitones apart.</p>
+<p><strong>Example:</strong> C augmented = C-E-G#</p>
+<p><strong>Access:</strong> Joystick UP+LEFT (DEFAULT mode)</p>
+</div>
+
+<h4>Suspended Chords</h4>
+
+<div class="mode-card">
+<h4>SUS4</h4>
+<p><strong>Formula:</strong> Root + Perfect 4th + Perfect 5th (replaces the 3rd with a 4th)</p>
+<p><strong>Character:</strong> Open, unresolved, neither major nor minor. Creates anticipation.</p>
+<p><strong>Example:</strong> Csus4 = C-F-G</p>
+<p><strong>Access:</strong> Joystick DOWN (DEFAULT mode)</p>
+<p><strong>Usage:</strong> Often resolves to major or minor. Common in rock and folk.</p>
+</div>
+
+<div class="mode-card">
+<h4>SUS2</h4>
+<p><strong>Formula:</strong> Root + Major 2nd + Perfect 5th (replaces the 3rd with a 2nd)</p>
+<p><strong>Character:</strong> Airy, modern, ambiguous. More stable than sus4.</p>
+<p><strong>Example:</strong> Csus2 = C-D-G</p>
+<p><strong>Access:</strong> Joystick DOWN+LEFT on minor chords (DEFAULT mode)</p>
+<p><strong>Usage:</strong> Popular in modern pop, ambient, and shoegaze.</p>
+</div>
+
+<h4>Seventh Chords</h4>
+
+<div class="mode-card">
+<h4>MAJOR 7</h4>
+<p><strong>Formula:</strong> Major triad + Major 7th (11 semitones from root)</p>
+<p><strong>Character:</strong> Lush, jazzy, sophisticated. Soft dissonance.</p>
+<p><strong>Example:</strong> Cmaj7 = C-E-G-B</p>
+<p><strong>Access:</strong> Joystick RIGHT on major chords (DEFAULT mode)</p>
+<p><strong>Usage:</strong> Jazz, R&B, neo-soul. The "pretty" 7th chord.</p>
+</div>
+
+<div class="mode-card">
+<h4>DOMINANT 7</h4>
+<p><strong>Formula:</strong> Major triad + Minor 7th (10 semitones from root)</p>
+<p><strong>Character:</strong> Bluesy, gritty, creates tension. Wants to resolve.</p>
+<p><strong>Example:</strong> C7 = C-E-G-Bb</p>
+<p><strong>Access:</strong> Joystick UP+RIGHT (DEFAULT mode)</p>
+<p><strong>Usage:</strong> Blues, rock, jazz. The V chord in "V7 → I" resolution.</p>
+</div>
+
+<div class="mode-card">
+<h4>MINOR 7</h4>
+<p><strong>Formula:</strong> Minor triad + Minor 7th</p>
+<p><strong>Character:</strong> Smooth, mellow, sophisticated minor. Less sad than plain minor.</p>
+<p><strong>Example:</strong> Cm7 = C-Eb-G-Bb</p>
+<p><strong>Access:</strong> Joystick RIGHT on minor chords (DEFAULT mode)</p>
+<p><strong>Usage:</strong> Jazz, R&B, neo-soul. The ii7 chord in ii-V-I progressions.</p>
+</div>
+
+<div class="mode-card">
+<h4>HALF-DIMINISHED 7 (m7♭5)</h4>
+<p><strong>Formula:</strong> Diminished triad + Minor 7th</p>
+<p><strong>Character:</strong> Dark, jazzy, mysterious. Less harsh than fully diminished.</p>
+<p><strong>Example:</strong> Cm7♭5 = C-Eb-Gb-Bb</p>
+<p><strong>Access:</strong> Joystick UP+LEFT (EXTENDED mode)</p>
+<p><strong>Usage:</strong> Jazz, film scores. Common as viiø7 or ii7 in minor keys.</p>
+</div>
+
+<h4>Sixth and Extended Chords</h4>
+
+<div class="mode-card">
+<h4>MAJOR 6</h4>
+<p><strong>Formula:</strong> Major triad + Major 6th (9 semitones from root)</p>
+<p><strong>Character:</strong> Bright, vintage, jazzy. Softer than major 7.</p>
+<p><strong>Example:</strong> C6 = C-E-G-A</p>
+<p><strong>Access:</strong> Joystick DOWN+LEFT on major chords (DEFAULT mode)</p>
+<p><strong>Usage:</strong> Jazz standards, bossa nova, vintage pop.</p>
+</div>
+
+<div class="mode-card">
+<h4>MAJOR 9</h4>
+<p><strong>Formula:</strong> Major 7 + Major 9th (major 7th + 2nd octave up)</p>
+<p><strong>Character:</strong> Lush, modern, complex. Very sophisticated sound.</p>
+<p><strong>Example:</strong> Cmaj9 = C-E-G-B-D</p>
+<p><strong>Access:</strong> Joystick UP (EXTENDED mode)</p>
+<p><strong>Usage:</strong> Modern jazz, neo-soul, fusion.</p>
+</div>
+
+<div class="mode-card">
+<h4>MINOR 9</h4>
+<p><strong>Formula:</strong> Minor 7 + Major 9th</p>
+<p><strong>Character:</strong> Dark but rich, emotional depth.</p>
+<p><strong>Example:</strong> Cm9 = C-Eb-G-Bb-D</p>
+<p><strong>Access:</strong> Joystick DOWN (EXTENDED mode)</p>
+<p><strong>Usage:</strong> Modern R&B, neo-soul, jazz.</p>
+</div>
+
+<div class="mode-card">
+<h4>MINOR 11</h4>
+<p><strong>Formula:</strong> Minor 9 + Perfect 11th</p>
+<p><strong>Character:</strong> Very open, modal, modern. Complex harmony.</p>
+<p><strong>Example:</strong> Cm11 = C-Eb-G-Bb-D-F</p>
+<p><strong>Access:</strong> Joystick RIGHT (EXTENDED mode)</p>
+<p><strong>Usage:</strong> Jazz, ambient, modal music.</p>
+</div>
+
+<div class="note-box">
+<strong>Pro Tip:</strong> Use the Chord Lock feature (hold Chord Button + joystick direction + F2) to save your favorite chord modifications permanently to specific chord buttons. This is especially useful for complex progressions that use the same modifications repeatedly.
+</div>
+
+<div class="section-divider"></div>
+
+<h2 id="section11">11 // SYNTHESIS ENGINE</h2>
+
+<p style="color: var(--gray); font-style: italic;">This section explains HiChord's audio synthesis architecture. Understanding this helps you create custom sounds and understand how presets work.</p>
+
+<h3 id="synth-architecture">Voice Architecture: 12-Oscillator System</h3>
+
+<p>HiChord uses a <strong>12-oscillator polyphonic architecture</strong> organized as 6 stereo pairs:</p>
+
+<ul>
+    <li><strong>Oscillators 0-5:</strong> Main voices (one per chord note in 6-note polyphony)</li>
+    <li><strong>Oscillators 6-11:</strong> Detuned/layered voices (paired with oscillators 0-5 for stereo width)</li>
+</ul>
+
+<p><strong>Example:</strong> When you play a 4-note chord, HiChord assigns:</p>
+<ul>
+    <li>Oscillators 0, 1, 2, 3 → play the 4 notes</li>
+    <li>Oscillators 6, 7, 8, 9 → play the same 4 notes, but slightly detuned and panned opposite</li>
+    <li>Result: Wide stereo image with rich chorusing effect</li>
+</ul>
+
+<h4>Stereo Panning System</h4>
+
+<p>Each oscillator has independent pan control (-1.0 to +1.0):</p>
+<ul>
+    <li><strong>Main oscillators (0-5):</strong> Typically panned across the stereo field (L to R)</li>
+    <li><strong>Layered oscillators (6-11):</strong> Panned opposite to their pairs for width</li>
+    <li><strong>Detune:</strong> Layered voices are detuned by ±5-15 cents for natural chorusing</li>
+</ul>
+
+<p>When STEREO effect is OFF, all voices sum to mono center.</p>
+
+<h4 id="synth-engines">Four Synthesis Engines</h4>
+
+<p>Each of the 12 oscillators can use any of these synthesis methods:</p>
+
+<div class="mode-card">
+<h4>1. ANALOG SYNTHESIS</h4>
+<p><strong>Method:</strong> Wavetable oscillators with anti-aliased waveforms</p>
+<p><strong>Waveforms:</strong></p>
+<ul>
+    <li><strong>SINE</strong> — Pure fundamental (only 1st harmonic)</li>
+    <li><strong>SAW</strong> — All harmonics, descending amplitude (bright, aggressive)</li>
+    <li><strong>SQUARE</strong> — Odd harmonics only (hollow, woody, "8-bit")</li>
+    <li><strong>TRIANGLE</strong> — Odd harmonics, rapidly descending (soft, mellow)</li>
+    <li><strong>POLYBLEP_SAW/SQUARE</strong> — Band-limited versions (reduces aliasing at high frequencies)</li>
+</ul>
+<p><strong>Use Cases:</strong> Classic subtractive synthesis, pads, leads, basses</p>
+</div>
+
+<div class="mode-card">
+<h4>2. FM SYNTHESIS</h4>
+<p><strong>Method:</strong> Frequency Modulation with 2-operator algorithms</p>
+<p><strong>Algorithms:</strong></p>
+<ul>
+    <li><strong>SIMPLE</strong> — Basic FM (sine → sine)</li>
+    <li><strong>EPIANO</strong> — Electric piano (Rhodes/Wurlitzer style)</li>
+    <li><strong>HX7</strong> — DX7-style digital synthesis (metallic, bell-like)</li>
+    <li><strong>BELL</strong> — Bell tones with high modulation index</li>
+    <li><strong>ORGAN</strong> — Organ algorithm (multiple harmonics)</li>
+    <li><strong>BRASS</strong> — Brass algorithm (rich overtones)</li>
+    <li><strong>WOBBLE</strong> — Wobble bass with LFO-modulated FM index</li>
+</ul>
+<p><strong>Parameters:</strong></p>
+<ul>
+    <li><strong>modRatio:</strong> Modulator frequency ratio (0.5 to 8.0) — determines harmonic content</li>
+    <li><strong>modIndex:</strong> Modulation depth (0.0 to 10.0) — controls brightness/complexity</li>
+</ul>
+<p><strong>Use Cases:</strong> Electric pianos, bells, metallic sounds, digital textures</p>
+</div>
+
+<div class="mode-card">
+<h4>3. SAMPLE PLAYBACK</h4>
+<p><strong>Method:</strong> High-quality sample playback with pitch-shifting</p>
+<p><strong>Sample Storage:</strong> QSPI flash memory (non-volatile)</p>
+<p><strong>Available Samples:</strong></p>
+<ul>
+    <li>Orchestral: STRINGS, CELLOS, VIOLINS, BRASS</li>
+    <li>Acoustic: ACOUSTIC (guitar), PIANO_UPRIGHT, VIBRAPHONE</li>
+    <li>Keys: WURLI (Wurlitzer electric piano)</li>
+    <li>Woodwinds: CLARINET</li>
+    <li>Vocal: VOX_AHH (choir "ahh")</li>
+    <li>User: MIC_CUSTOM [Batch 4+] — record your own!</li>
+</ul>
+<p><strong>Pitch-Shifting:</strong> Real-time pitch-shifting (-24 to +24 semitones) allows samples to play across full keyboard range</p>
+<p><strong>Loop Mode:</strong> Sustaining samples loop seamlessly for held chords</p>
+<p><strong>Use Cases:</strong> Realistic instruments, textural layers, custom sounds via microphone</p>
+</div>
+
+<div class="mode-card">
+<h4>4. NOISE SYNTHESIS</h4>
+<p><strong>Method:</strong> Filtered noise generation for textural elements</p>
+<p><strong>Noise Types:</strong></p>
+<ul>
+    <li><strong>WHITE</strong> — Full spectrum (equal energy per frequency)</li>
+    <li><strong>PINK</strong> — Filtered white (equal energy per octave, more natural)</li>
+    <li><strong>FILTERED_RESONANT</strong> — Noise through resonant bandpass filter</li>
+    <li><strong>METALLIC</strong> — Noise with metallic ring modulation</li>
+</ul>
+<p><strong>Parameters:</strong></p>
+<ul>
+    <li><strong>filterFreq:</strong> Filter cutoff for tonal shaping</li>
+    <li><strong>filterRes:</strong> Filter resonance for emphasis at cutoff frequency</li>
+</ul>
+<p><strong>Use Cases:</strong> Hi-hats, wind sounds, ambient textures, breath noise in hybrid presets</p>
+</div>
+
+<h4>Hybrid Mixing Modes</h4>
+
+<p>The 12 oscillators can combine multiple engines simultaneously:</p>
+
+<ul>
+    <li><strong>LAYER mode:</strong> All oscillators play together (most common)</li>
+    <li><strong>ALTERNATE mode:</strong> Oscillators alternate on each note press (round-robin)</li>
+    <li><strong>RANDOM mode:</strong> Random oscillator selection per note</li>
+    <li><strong>VELOCITY mode:</strong> Oscillator selection based on note velocity (not implemented in current hardware)</li>
+</ul>
+
+<p><strong>Example Hybrid Preset — "OCEAN_PAD":</strong></p>
+<ul>
+    <li>Oscillators 0-5: ANALOG sine waves (fundamental tone)</li>
+    <li>Oscillators 6-11: NOISE (pink, filtered) + FM (low modIndex bell algorithm)</li>
+    <li>Result: Warm pad with oceanic texture and subtle digital sparkle</li>
+</ul>
+
+<h4 id="synth-signal">Signal Flow</h4>
+
+<p>Understanding the complete audio signal path:</p>
+
+<ol style="line-height: 2.2;">
+    <li><strong>INPUT</strong> → Press Chord Button + Joystick Modification</li>
+    <li><strong>CHORD LOGIC</strong> → Diatonic Chord System calculates actual notes based on key</li>
+    <li><strong>VOICE ALLOCATION</strong> → Assigns notes to available oscillators (0-11)</li>
+    <li><strong>OSCILLATORS</strong> → Each oscillator generates audio using its assigned engine (Analog/FM/Sample/Noise)</li>
+    <li><strong>ENVELOPE (ADSR)</strong> → Applied to each oscillator (Attack, Decay, Sustain, Release)</li>
+    <li><strong>VOICE MIXING</strong> → 12 oscillators mixed with pan and amplitude settings</li>
+    <li><strong>BASS OSCILLATOR</strong> → Optional sub-bass added (ROOT or SLASH mode)</li>
+    <li><strong>FILTER</strong> → State-variable lowpass filter (cutoff 600-18000 Hz)</li>
+    <li><strong>MODULATION EFFECTS</strong> → Chorus → Flanger</li>
+    <li><strong>TIME EFFECTS</strong> → Delay (tempo-synced) → Reverb</li>
+    <li><strong>LOOPER</strong> → Optional record/playback (2 tracks, ~20 seconds each)</li>
+    <li><strong>OUTPUT</strong> → Stereo audio (analog out + USB audio) + MIDI out (optional)</li>
+</ol>
+
+<h4>Technical Specifications</h4>
+
+<table>
+    <tr><th>PARAMETER</th><th>VALUE</th></tr>
+    <tr><td>Sample Rate</td><td>48 kHz (48,000 samples per second)</td></tr>
+    <tr><td>Bit Depth</td><td>16-bit output, 32-bit float internal processing</td></tr>
+    <tr><td>Polyphony</td><td>6 notes (12 oscillators as 6 stereo pairs)</td></tr>
+    <tr><td>Latency</td><td>&lt;3ms (hardware + audio processing)</td></tr>
+    <tr><td>Processor</td><td>STM32H750 @ 400 MHz (ARM Cortex-M7 with FPU)</td></tr>
+    <tr><td>RAM</td><td>SDRAM for looper buffers (~2.5 MB audio buffer)</td></tr>
+    <tr><td>Storage</td><td>QSPI Flash (samples, presets, user recordings)</td></tr>
+    <tr><td>Dynamic Range</td><td>~90 dB (limited by hardware DAC)</td></tr>
+</table>
+
+<div class="note-box">
+<strong>Sound Design Tip:</strong> The RANDOM waveform feature (F2 + Chord Button 7, or <strong>F2</strong> menu + Joystick CLICK) generates hybrid presets by randomly assigning engines, waveforms, detuning, and panning to all 12 oscillators. This can create unique sounds you'd never program manually — try it for happy accidents!
+</div>
+
+<div class="section-divider"></div>
+
+<h2 id="section12">12 // COMPLETE BUTTON REFERENCE</h2>
+
+<div class="quick-ref">
+<h3><span class="inline-code f1">F1</span> (FUNCTION 1) — MENU & SETTINGS</h3>
+<table>
+    <tr><th>ACTION</th><th>RESULT</th></tr>
+    <tr><td>F1 (single press)</td><td>Enter <strong>F1</strong> menu (Key, Octave)</td></tr>
+    <tr><td>In <strong>F1</strong> Menu: Joystick UP/DOWN</td><td>Change global octave shift</td></tr>
+    <tr><td>In <strong>F1</strong> Menu: Joystick LEFT/RIGHT</td><td>Change key / transpose</td></tr>
+    <tr><td>Joystick Click (in <strong>F1</strong> menu)</td><td>Generate random all (waveform, effects, arpeggio)</td></tr>
+    <tr><td>F1 + Chord Buttons 1-5 (ARPEGGIO mode)</td><td>Select arpeggio pattern</td></tr>
+    <tr><td>F1 + Chord (chord held first)</td><td>Octave DOWN per chord button</td></tr>
+    <tr><td>F1 + Chord (F1 first)</td><td>ARPEGGIO: select pattern/mode</td></tr>
+    <tr><td>F1 + Volume Knob</td><td>Adjust attack time (custom envelope)</td></tr>
+    <tr><td>F1 + F2 (hold both)</td><td>Display battery status</td></tr>
+    <tr><td>F1 + F3 (on boot) <span style="color: #f59e0b;">[Pre-Batch 4]</span></td><td>Enter button calibration mode (only if buttons misfiring)</td></tr>
+    <tr><td>F1 + F2 + F3 (all together)</td><td>Toggle auto drums ON/OFF</td></tr>
+</table>
+</div>
+
+<div class="quick-ref">
+<h3><span class="inline-code f2">F2</span> (FUNCTION 2) — EFFECTS & SOUNDS</h3>
+<table>
+    <tr><th>ACTION</th><th>RESULT</th></tr>
+    <tr><td>F2 (single press)</td><td>Enter <strong>Effects</strong> menu</td></tr>
+    <tr><td>In <strong>F2</strong> Menu: Joystick LEFT/RIGHT</td><td>Cycle through effects</td></tr>
+    <tr><td>In <strong>F2</strong> Menu: Joystick DOWN</td><td>Toggle/adjust selected effect</td></tr>
+    <tr><td>In <strong>F2</strong> Menu: Joystick UP</td><td>Enter <strong>Sounds</strong> menu</td></tr>
+    <tr><td>In <strong>Waveform</strong> Menu: Joystick LEFT/RIGHT</td><td>Browse waveforms</td></tr>
+    <tr><td>F2 + Chord (F2 held first)</td><td>Quick select waveform (1-7 shortcuts)</td></tr>
+    <tr><td>F2 + Chord (chord held first)</td><td>Cycle inversions (Root/1st/2nd)</td></tr>
+    <tr><td>F2 + Chord + Joystick</td><td>Lock/unlock modified chord type</td></tr>
+    <tr><td>F2 + Volume Knob</td><td>Adjust release time (custom envelope)</td></tr>
+    <tr><td>F2 + F3 (hold both)</td><td>Open <strong>Preset</strong> menu / Bounce to looper</td></tr>
+</table>
+</div>
+
+<div class="quick-ref">
+<h3><span class="inline-code f3">F3</span> (FUNCTION 3) — MODE SELECTION & FILTER</h3>
+<table>
+    <tr><th>ACTION</th><th>RESULT</th></tr>
+    <tr><td>F3 (single press)</td><td>Open <strong>BPM</strong> menu, then Joystick UP enters Mode Selection</td></tr>
+    <tr><td>F3 × 6 (rapid taps)</td><td>Tap tempo - set BPM by tapping rhythm</td></tr>
+    <tr><td>Joystick Click (in <strong>F3</strong> menu)</td><td>Generate random arpeggio pattern</td></tr>
+    <tr><td>F3 + Chord (F3 held first)</td><td>Quick mode select (Chord Buttons 1-7)</td></tr>
+    <tr><td>F3 + Chord (chord held first)</td><td>Octave UP per chord button</td></tr>
+    <tr><td>F3 + Volume Knob</td><td>Engage filter mode, adjust cutoff (600-18000Hz)</td></tr>
+    <tr><td>F3 + Joystick UP/DOWN</td><td>Adjust filter cutoff (when filter mode engaged)</td></tr>
+</table>
+</div>
+
+<div class="quick-ref">
+<h3>LOOPER CONTROLS (NO FUNCTION BUTTONS)</h3>
+<table>
+    <tr><th>ACTION</th><th>RESULT</th></tr>
+    <tr><td>Joystick Click</td><td>Cycle looper states (OFF → WAITING → RECORD → LOOP → OFF)</td></tr>
+    <tr><td>Joystick LEFT/RIGHT (non-drum modes)</td><td>Switch between Track 1 and Track 2</td></tr>
+    <tr><td>Joystick UP/DOWN (drum modes)</td><td>Switch between Track 1 and Track 2</td></tr>
+    <tr><td>Joystick LEFT/RIGHT (WAITING state)</td><td>Adjust bar count (0-8 bars)</td></tr>
+</table>
+</div>
+
+<div class="section-divider"></div>
+
+<h2 id="section13">13 // TECHNICAL SPECIFICATIONS</h2>
+
+<table>
+    <tr><th>PARAMETER</th><th>VALUE</th></tr>
+    <tr><td>Processor</td><td>STM32H750, 400MHz ARM Cortex-M7</td></tr>
+    <tr><td>Sample Rate</td><td>48kHz</td></tr>
+    <tr><td>Bit Depth</td><td>16-bit internal / 32-bit float processing</td></tr>
+    <tr><td>Polyphony</td><td>Up to 12 voices (6×2 stereo)</td></tr>
+    <tr><td>Display</td><td>64×32 OLED</td></tr>
+    <tr><td>Storage</td><td>QSPI Flash (samples, presets, settings)</td></tr>
+    <tr><td>RAM</td><td>SDRAM for looper buffers</td></tr>
+    <tr><td>Looper Capacity</td><td>~20 seconds × 2 tracks</td></tr>
+    <tr><td>MIDI</td><td>USB MIDI class compliant</td></tr>
+    <tr><td>Power</td><td>USB or battery (rechargeable)</td></tr>
+</table>
+
+<div class="section-divider"></div>
+
+<h2 id="section14">14 // TROUBLESHOOTING</h2>
+
+<h4>No Sound</h4>
+<ul>
+    <li>Check volume knob (turn clockwise)</li>
+    <li>Verify battery charge <span style="color: #f59e0b;">[Batch 2+]</span>: Hold <span class="inline-code f1">F1</span> + <span class="inline-code f2">F2</span> to check battery status</li>
+    <li>Ensure not in DRUM mode (press F3 to change modes)</li>
+    <li>Check audio output connection</li>
+</ul>
+
+<h4>Buttons Not Responding</h4>
+<ul>
+    <li>Check battery level <span style="color: #f59e0b;">[Batch 2+]</span>: Hold <span class="inline-code f1">F1</span> + <span class="inline-code f2">F2</span> together to display battery voltage and percentage</li>
+    <li>Ensure no function button is stuck/held</li>
+    <li><span style="color: #f59e0b;">[Pre-Batch 4 only]</span> If buttons are misfiring, run button calibration (boot with F1+F3)</li>
+</ul>
+
+<h4>Looper Issues</h4>
+<ul>
+    <li>Verify correct track selected (Joystick UP/DOWN)</li>
+    <li>Check bar count setting (F1 + Joystick UP/DOWN)</li>
+    <li>Clear track if stuck (F3 + LEFT or RIGHT)</li>
+</ul>
+
+<h4>Display Frozen</h4>
+<ul>
+    <li>Check battery level <span style="color: #f59e0b;">[Batch 2+]</span>: Hold <span class="inline-code f1">F1</span> + <span class="inline-code f2">F2</span> to display battery status</li>
+    <li>Power cycle unit</li>
+    <li>Device may be in sleep mode (press any button)</li>
+</ul>
+
+<h3 style="margin-top: 40px; color: #1E40AF;">STILL NEED HELP?</h3>
+
+<div class="note-box" style="background: linear-gradient(135deg, #E8F4FF 0%, #F0F9FF 100%); border-left-color: #3B82F6; padding: 24px 28px;">
+<p style="margin-bottom: 12px; font-size: 15px; color: var(--black);">If you're experiencing issues not covered in this troubleshooting guide, or if the solutions above don't resolve your problem, our support team is here to help.</p>
+<p style="margin-bottom: 0; font-size: 16px;"><strong style="color: #1E40AF;">Contact Support:</strong> <a href="mailto:support@hichord.shop" style="color: #2563EB; font-weight: 600; text-decoration: none; border-bottom: 2px solid #93C5FD; padding-bottom: 1px;">support@hichord.shop</a></p>
+</div>
+
+<div class="section-divider"></div>
+
+<h2 id="section15">15 // HARDWARE BATCH VERSIONS</h2>
+
+<p>HiChord hardware has evolved across multiple production batches. Some features are only available in specific batches:</p>
+
+<table>
+    <tr>
+        <th>FEATURE</th>
+        <th>AVAILABLE IN</th>
+    </tr>
+    <tr><td>Core functionality (chords, modes, effects)</td><td>All batches</td></tr>
+    <tr><td>Built-in speaker</td><td>All batches</td></tr>
+    <tr><td>USB-C audio/MIDI</td><td>All batches</td></tr>
+    <tr><td>Battery status detection</td><td>Batch 2 and later</td></tr>
+    <tr><td>Microphone input / MIC_SAMPLE and TUNER modes</td><td>Batch 4 and later</td></tr>
+</table>
+
+<div class="note-box">
+Features marked with <strong>[Batch X+]</strong> in this manual require that hardware version or later.
+</div>
+
+<div class="section-divider"></div>
+
+<div class="note-box" style="background: linear-gradient(135deg, #E8F4FF 0%, #F0F9FF 100%); border-left-color: #3B82F6;">
+<strong style="color: #1E40AF;">DOCUMENT END</strong><br>
+HiChord // OPERATION MANUAL REV 1.9<br>
+<strong>Support:</strong> <a href="mailto:support@hichord.shop" style="color: #2563EB; font-weight: 600; text-decoration: none; border-bottom: 1px solid #93C5FD;">support@hichord.shop</a>
+</div>
+
+
+</body>
+</html>
