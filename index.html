@@ -417,14 +417,29 @@
         /* Chord Button Icon */
         .chord-btn-icon {
             display: inline-block;
-            width: 14px;
-            height: 18px;
-            margin: 0 2px;
+            width: 18px;
+            height: 22px;
+            margin: 0 3px;
             vertical-align: middle;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" fill="none" stroke="%23333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="12" height="16" rx="2" ry="2"/></svg>');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
+            position: relative;
+            border: 1.5px solid #333333;
+            border-radius: 3px;
+            background: linear-gradient(135deg, #F8F8F8 0%, #E8E8E8 100%);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 -1px 1px rgba(0, 0, 0, 0.1);
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 11px;
+            color: #333333;
+            text-align: center;
+            line-height: 22px;
+        }
+
+        .chord-btn-icon::before {
+            content: attr(data-num);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         /* Joystick Direction Icons */
@@ -443,19 +458,19 @@
         }
 
         .joy-up {
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23333333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>');
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23333333" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5 L12 19 M12 5 L7 10 M12 5 L17 10"/></svg>');
         }
 
         .joy-down {
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23333333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>');
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23333333" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19 L12 5 M12 19 L7 14 M12 19 L17 14"/></svg>');
         }
 
         .joy-left {
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23333333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>');
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23333333" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12 L19 12 M5 12 L10 7 M5 12 L10 17"/></svg>');
         }
 
         .joy-right {
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23333333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>');
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23333333" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12 L5 12 M19 12 L14 7 M19 12 L14 17"/></svg>');
         }
 
         .joy-click {
@@ -1198,14 +1213,14 @@ document.addEventListener('click', (e) => {
 <h1>HiChord</h1>
 <div class="header-meta">Operation Manual // Rev 1.9</div>
 
-<p>HiChord is a chord synthesizer with <strong>7 Chord Buttons</strong> that play the chords naturally occurring in any musical key. Press any chord button and the chords always work together — no music theory required. Hold a chord button and move the <strong>joystick</strong> to modify the chord (major to minor, sus4, 7ths, extended chords, etc). Change keys instantly with <span class="inline-code f1">F1</span> + LEFT/RIGHT.</p>
+<p>HiChord is a chord synthesizer with <strong>7 Chord Buttons</strong> that play the chords naturally occurring in any musical key. Press any Chord Button and the chords always work together — no music theory required. Hold a Chord Button and move the <strong>Joystick</strong> to modify the chord (major to minor, sus4, 7ths, extended chords, etc). Change keys instantly with <span class="inline-code f1">F1</span> + LEFT/RIGHT.</p>
 
 <p>The sound engine combines digital oscillators, FM synthesis, and sample playback across 12 voices. Onboard effects include reverb, delay, chorus, and flanger. The 2-track looper captures your progressions for live layering.</p>
 
 <!-- HARDWARE OVERVIEW -->
 <div style="text-align: center; margin: 24px 0;">
     <img src="images/Front View.png" alt="HiChord Front View" style="max-width: min(400px, 100%); width: 100%; height: auto; border: 1px solid var(--border-light); border-radius: 3px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); margin: 0 auto;">
-    <p style="margin-top: 10px; font-size: 12px; color: var(--gray);"><strong>HiChord Hardware Layout:</strong> OLED display (left), 8-direction joystick, 3 function buttons (F1 gray, F2 yellow, F3 red), and 7 Chord Buttons (1-7)</p>
+    <p style="margin-top: 10px; font-size: 12px; color: var(--gray);"><strong>HiChord Hardware Layout:</strong> OLED display (left), 8-direction Joystick, 3 function buttons (F1 gray, F2 yellow, F3 red), and 7 Chord Buttons (1-7)</p>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -1246,10 +1261,10 @@ document.addEventListener('click', (e) => {
     <li><strong>Power on:</strong> Slide the red power button on top. Wait for OLED display to initialize</li>
     <li><strong>Adjust volume:</strong> Use the volume slider on top. For best sound quality, use headphones connected to the headphone jack</li>
     <li><strong>Play a chord:</strong> Press any Chord Button <span class="chord-btn-icon"></span> 1-7. These represent scale degrees (I, ii, iii, IV, V, vi, vii°)</li>
-    <li><strong>Try different sounds:</strong> Press <span class="inline-code f2">F2</span> (opens Effects menu) » Joystick UP <span class="joy-up"></span> (opens Sounds menu) » LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to browse sounds</li>
-    <li><strong>Add effects:</strong> Press <span class="inline-code f2">F2</span> (opens Effects menu) » LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to browse effects » DOWN <span class="joy-down"></span> to toggle effect ON/OFF</li>
-    <li><strong>Change key:</strong> Press <span class="inline-code f1">F1</span> (opens Settings menu) » LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to transpose</li>
-    <li><strong>Try modes:</strong> Hold <span class="inline-code f3">F3</span>, then press Chord Buttons <span class="chord-btn-icon"></span> 1-7 for quick mode select (ONESHOT, STRUM, LEAD, DRONE, ARPEGGIO, REPEAT, DRUMMODE)</li>
+    <li><strong>Try different sounds:</strong> Press <span class="inline-code f2">F2</span> (opens Effects menu), then Joystick UP <span class="joy-up"></span> (opens Sounds menu), then LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to browse sounds</li>
+    <li><strong>Add effects:</strong> Press <span class="inline-code f2">F2</span> (opens Effects menu), then LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to browse effects, then DOWN <span class="joy-down"></span> to toggle effect ON/OFF</li>
+    <li><strong>Change key:</strong> Press <span class="inline-code f1">F1</span> (opens Settings menu), then LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to transpose</li>
+    <li><strong>Try modes:</strong> Hold <span class="inline-code f3">F3</span>, then press Chord Buttons 1-7 for quick mode select (ONESHOT, STRUM, LEAD, DRONE, ARPEGGIO, REPEAT, DRUMMODE)</li>
 </ol>
 </div>
 
@@ -1274,7 +1289,7 @@ Having trouble or have questions? Contact our support team at <a href="mailto:su
 <h2 id="section01">01 // BASIC OPERATION</h2>
 
 <h3 id="chord-buttons">Playing Chords</h3>
-<p>The 7 Chord Buttons trigger chords using the Diatonic Chord System. Each chord button represents a scale degree in the current key. In major mode:</p>
+<p>The 7 Chord Buttons trigger chords using the Diatonic Chord System. Each Chord Button represents a scale degree in the current key. In major mode:</p>
 <table>
     <tr>
         <th>CHORD BUTTON</th>
@@ -1292,9 +1307,9 @@ Having trouble or have questions? Contact our support team at <a href="mailto:su
 </table>
 
 <h3 id="chord-modifying">Modifying Chords with Joystick</h3>
-<p><strong>How it works:</strong> Hold any Chord Button, then move the joystick in any direction to modify the chord quality in real-time. Release the joystick to return to the default chord.</p>
+<p><strong>How it works:</strong> Hold any Chord Button, then move the Joystick in any direction to modify the chord quality in real-time. Release the Joystick to return to the default chord.</p>
 
-<p><strong>Example:</strong> Hold Chord Button <span class="chord-btn-icon"></span> 1 (I chord, C Major), push joystick UP <span class="joy-up"></span> to toggle to C minor, or push RIGHT <span class="joy-right"></span> for C Maj7, or push DOWN <span class="joy-down"></span> for C sus4.</p>
+<p><strong>Example:</strong> Hold Chord Button <span class="chord-btn-icon" data-num="1"></span> (I chord, C Major), push Joystick UP <span class="joy-up"></span> to toggle to C minor, or push RIGHT <span class="joy-right"></span> for C Maj7, or push DOWN <span class="joy-down"></span> for C sus4.</p>
 
 <!-- JOYSTICK CHORD MAP -->
 <div style="text-align: center; margin: 24px 0; overflow-x: auto;">
@@ -1336,21 +1351,21 @@ Having trouble or have questions? Contact our support team at <a href="mailto:su
 </table>
 
 <div class="note-box">
-<strong>Pro Tip:</strong> DEFAULT mode covers all essential chord colors for most musical styles. Want more harmonic depth? Enable EXTENDED mode: Press <span class="inline-code f2">F2</span> (opens Effects menu) » LEFT/RIGHT to browse options » find JOYSTICK » DOWN to toggle to EXTENDED for sophisticated voicings like dom9, min11, and add9.
+<strong>Pro Tip:</strong> DEFAULT mode covers all essential chord colors for most musical styles. Want more harmonic depth? Enable EXTENDED mode: Press <span class="inline-code f2">F2</span> (opens Effects menu), then LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to browse options, find JOYSTICK, then DOWN <span class="joy-down"></span> to toggle to EXTENDED for sophisticated voicings like dom9, min11, and add9.
 </div>
 
 <h3 id="chord-lock">Chord Lock (Make Modifications Permanent)</h3>
-<p><strong>Purpose:</strong> Save a modified chord (like sus4 or Maj7) so the chord button always plays that variation.</p>
+<p><strong>Purpose:</strong> Save a modified chord (like sus4 or Maj7) so the Chord Button always plays that variation.</p>
 
 <p><strong>To lock a chord:</strong></p>
 <ol>
-    <li>Hold Chord Button <span class="chord-btn-icon"></span> (e.g., Chord Button <span class="chord-btn-icon"></span> 4)</li>
-    <li>Move joystick to desired modification (e.g., UP <span class="joy-up"></span> for sus4)</li>
+    <li>Hold Chord Button <span class="chord-btn-icon" data-num="4"></span> (e.g., Chord Button 4)</li>
+    <li>Move Joystick to desired modification (e.g., UP <span class="joy-up"></span> for sus4)</li>
     <li>While still holding both, press <span class="inline-code f2">F2</span></li>
-    <li>Display shows "LOCKED" — Chord Button <span class="chord-btn-icon"></span> 4 now always plays IV sus4</li>
+    <li>Display shows "LOCKED" — Chord Button <span class="chord-btn-icon" data-num="4"></span> now always plays IV sus4</li>
 </ol>
 
-<p><strong>To unlock:</strong> Repeat the same process (hold chord button + joystick direction + <span class="inline-code f2">F2</span>)</p>
+<p><strong>To unlock:</strong> Repeat the same process (hold Chord Button + Joystick direction + <span class="inline-code f2">F2</span>)</p>
 
 <h3 id="octave-shifting">Octave Shifting</h3>
 
@@ -1361,7 +1376,7 @@ Having trouble or have questions? Contact our support team at <a href="mailto:su
     <li><strong>Octave DOWN:</strong> Hold Chord Button, then press <span class="inline-code f1">F1</span></li>
     <li><strong>Octave UP:</strong> Hold Chord Button, then press <span class="inline-code f3">F3</span></li>
     <li>Range: -2 octaves → -1 octave → Normal → +1 octave</li>
-    <li>Each chord button remembers its octave setting independently</li>
+    <li>Each Chord Button remembers its octave setting independently</li>
 </ul>
 
 <h4>Global Octave (All Chord Buttons)</h4>
@@ -1381,18 +1396,18 @@ The <strong>F1</strong> menu <span class="menu-icon"></span> closes automaticall
 </div>
 
 <div class="note-box">
-<strong>Global vs Per-Button:</strong> Global octave shifts apply to all chord buttons at once, while per-chord-button shifts allow you to create custom voicings where different Chord Buttons play in different octave ranges.
+<strong>Global vs Per-Button:</strong> Global octave shifts apply to all Chord Buttons at once, while per-Chord-Button shifts allow you to create custom voicings where different Chord Buttons play in different octave ranges.
 </div>
 
 <h3 id="advanced-key">Changing Key</h3>
-<p><strong>How to change key:</strong> Press <span class="inline-code f1">F1</span> (opens KEY + OCTAVE menu) » Joystick LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to select a new key.</p>
+<p><strong>How to change key:</strong> Press <span class="inline-code f1">F1</span> (opens KEY + OCTAVE menu), then Joystick LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to select a new key.</p>
 
 <p><strong>Available keys:</strong> C, C#, D, D#, E, F, F#, G, G#, A, A#, B (all 12 chromatic keys)</p>
 
-<p>All Chord Buttons <span class="chord-btn-icon"></span> transpose to the new key, maintaining Diatonic Chord System relationships. The current key is always displayed on screen.</p>
+<p>All Chord Buttons transpose to the new key, maintaining Diatonic Chord System relationships. The current key is always displayed on screen.</p>
 
 <h3 id="advanced-bpm">BPM (Tempo)</h3>
-<p><strong>How to change BPM:</strong> Press <span class="inline-code f3">F3</span> (opens BPM menu, displays current tempo) » Joystick LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to adjust (60-190 BPM)</p>
+<p><strong>How to change BPM:</strong> Press <span class="inline-code f3">F3</span> (opens BPM menu, displays current tempo), then Joystick LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to adjust (60-190 BPM)</p>
 
 <p><strong>What it affects:</strong> All rhythm rates, delays, arpeggios, drum loops, sequencer, and metronome sync to the current BPM.</p>
 
@@ -1404,9 +1419,9 @@ The <strong>F1</strong> menu <span class="menu-icon"></span> closes automaticall
     <li><strong>Root Position</strong> (default) → <strong>1st Inversion</strong> → <strong>2nd Inversion</strong> → (repeat)</li>
 </ul>
 
-<p><strong>Alternative:</strong> Hold Chord Button + click joystick (same function, handy during performance!)</p>
+<p><strong>Alternative:</strong> Hold Chord Button + click Joystick (same function, handy during performance!)</p>
 
-<p><strong>Automatic voice leading:</strong> Enable VOICE LEAD: Press <span class="inline-code f2">F2</span> (opens Effects menu) » LEFT/RIGHT to browse » find VOICE LEAD » DOWN to toggle ON. HiChord will automatically select inversions for smooth voice leading between chords, creating professional-sounding progressions with minimal melodic motion.</p>
+<p><strong>Automatic voice leading:</strong> Enable VOICE LEAD: Press <span class="inline-code f2">F2</span> (opens Effects menu), then LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to browse, find VOICE LEAD, then DOWN <span class="joy-down"></span> to toggle ON. HiChord will automatically select inversions for smooth voice leading between chords, creating professional-sounding progressions with minimal melodic motion.</p>
 
 <div class="section-divider"></div>
 
@@ -1601,7 +1616,7 @@ The <strong>F1</strong> menu <span class="menu-icon"></span> closes automaticall
 
 <div class="mode-card">
 <h4>JOYSTICK</h4>
-<p>Displays current joystick chord modification mode (DEFAULT or EXTENDED).</p>
+<p>Displays current Joystick chord modification mode (DEFAULT or EXTENDED).</p>
 <p><strong>To toggle modes:</strong> Navigate to JOYSTICK using Joystick LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span>, then press Joystick DOWN <span class="joy-down"></span> to switch between DEFAULT and EXTENDED mode.</p>
 <p>See <a href="#section01">Basic Operation</a> section for full chord modification table.</p>
 </div>
@@ -1687,9 +1702,9 @@ The <strong>F1</strong> menu <span class="menu-icon"></span> closes automaticall
 <h3>MIDI Over USB-C</h3>
 <p>Send MIDI note data to your computer:</p>
 <ul>
-    <li>Enable MIDI: Press <span class="inline-code f2">F2</span> (opens Effects menu) » LEFT/RIGHT to browse » find MIDI » DOWN to toggle ON</li>
+    <li>Enable MIDI: Press <span class="inline-code f2">F2</span> (opens Effects menu), then LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to browse, find MIDI, then DOWN <span class="joy-down"></span> to toggle ON</li>
     <li>Connect to computer via USB-C</li>
-    <li>HiChord sends MIDI notes for all chord buttons <span class="chord-btn-icon"></span> and modifications</li>
+    <li>HiChord sends MIDI notes for all Chord Buttons and modifications</li>
     <li>Use with software synths, samplers, or for recording MIDI</li>
 </ul>
 
@@ -1717,14 +1732,14 @@ The <strong>F1</strong> menu <span class="menu-icon"></span> closes automaticall
 
 <p><strong>Adjusting mode-specific parameters:</strong> Once in a mode, you can adjust its settings:</p>
 <ul>
-    <li><strong>STRUM:</strong> Press F3 » UP (opens Mode menu) » LEFT/RIGHT to navigate to strum speed » UP to cycle speeds (SLOW/MEDIUM/FAST)</li>
-    <li><strong>ARPEGGIO/REPEAT/DRUMLOOP/SEQUENCER:</strong> Press F3 » UP (opens Mode menu) » UP to cycle rhythm rates (1/4, 1/8, 1/16, 1/16T, 1/32)</li>
-    <li><strong>EARTRAINER:</strong> Press F3 » UP (opens Mode menu) » UP to cycle difficulty levels</li>
+    <li><strong>STRUM:</strong> Press F3, then UP <span class="joy-up"></span> (opens Mode menu), LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to navigate to strum speed, then UP <span class="joy-up"></span> to cycle speeds (SLOW/MEDIUM/FAST)</li>
+    <li><strong>ARPEGGIO/REPEAT/DRUMLOOP/SEQUENCER:</strong> Press F3, then UP <span class="joy-up"></span> (opens Mode menu), then UP <span class="joy-up"></span> to cycle rhythm rates (1/4, 1/8, 1/16, 1/16T, 1/32)</li>
+    <li><strong>EARTRAINER:</strong> Press F3, then UP <span class="joy-up"></span> (opens Mode menu), then UP <span class="joy-up"></span> to cycle difficulty levels</li>
 </ul>
 
 <p><strong>All 14 modes accessible via <strong>Mode</strong> menu <span class="menu-icon"></span>:</strong> ONESHOT, STRUM, LEAD, DRONE, ARPEGGIO, REPEAT, DRUMMODE, DRUMLOOPMODE, SEQUENCER, CHORDHIRO, EARTRAINER, TUNER <span style="color: #f59e0b;">[Batch 4+]</span>, MIC_SAMPLE <span style="color: #f59e0b;">[Batch 4+]</span></p>
 <div class="note-box">
-<strong>Note:</strong> AUTODRUM is not a selectable mode - it automatically activates when you press a Chord Button + move joystick while in DRUMMODE.
+<strong>Note:</strong> AUTODRUM is not a selectable mode - it automatically activates when you press a Chord Button + move Joystick while in DRUMMODE.
 </div>
 
 <h3>Method 2: Quick Mode Select (7 Most Common Modes)</h3>
@@ -1747,7 +1762,7 @@ The <strong>F1</strong> menu <span class="menu-icon"></span> closes automaticall
 </table>
 
 <div class="note-box">
-<strong>Note:</strong> Quick Mode Select only accesses 7 modes. To access DRUMLOOPMODE, SEQUENCER, CHORDHIRO, EARTRAINER, TUNER, or MIC_SAMPLE, use Method 1 (Press F3 » UP opens Mode Menu <span class="menu-icon"></span> » LEFT/RIGHT to browse).
+<strong>Note:</strong> Quick Mode Select only accesses 7 modes. To access DRUMLOOPMODE, SEQUENCER, CHORDHIRO, EARTRAINER, TUNER, or MIC_SAMPLE, use Method 1 (Press F3, then UP <span class="joy-up"></span> opens Mode Menu <span class="menu-icon"></span>, then LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to browse).
 </div>
 
 <div class="section-divider"></div>
@@ -1758,16 +1773,16 @@ The <strong>F1</strong> menu <span class="menu-icon"></span> closes automaticall
 <div class="mode-card">
 <h3 id="mode-oneshot">ONESHOT</h3>
 <p><strong>Function:</strong> Standard polyphonic chord triggering with ADSR envelope.</p>
-<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button <span class="chord-btn-icon"></span> 1</p>
-<p><strong>Operation:</strong> Hold Chord Button <span class="chord-btn-icon"></span> » chord plays » release » envelope releases</p>
+<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button <span class="chord-btn-icon" data-num="1"></span></p>
+<p><strong>Operation:</strong> Hold Chord Button » chord plays » release » envelope releases</p>
 </div>
 
 <div class="mode-card">
 <h3 id="mode-strum">STRUM</h3>
 <p><strong>Function:</strong> Guitar strumming simulation.</p>
-<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button <span class="chord-btn-icon"></span> 2</p>
-<p><strong>Operation:</strong> Hold Chord Button <span class="chord-btn-icon"></span> » notes trigger sequentially with timing delay</p>
-<p><strong>Strum Speed:</strong> Press <span class="inline-code f3">F3</span> » Joystick UP <span class="joy-up"></span> (opens Mode menu) » UP to cycle through speeds</p>
+<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button <span class="chord-btn-icon" data-num="2"></span></p>
+<p><strong>Operation:</strong> Hold Chord Button » notes trigger sequentially with timing delay</p>
+<p><strong>Strum Speed:</strong> Press <span class="inline-code f3">F3</span>, then Joystick UP <span class="joy-up"></span> (opens Mode menu), then UP <span class="joy-up"></span> to cycle through speeds</p>
 <ul>
     <li>SLOW (200ms between notes)</li>
     <li>MEDIUM (80ms)</li>
@@ -1778,94 +1793,94 @@ The <strong>F1</strong> menu <span class="menu-icon"></span> closes automaticall
 <div class="mode-card">
 <h3 id="mode-lead">LEAD</h3>
 <p><strong>Function:</strong> Monophonic single-note mode for melodies.</p>
-<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button <span class="chord-btn-icon"></span> 3</p>
-<p><strong>Operation:</strong> Only plays root note of each Chord Button <span class="chord-btn-icon"></span>. New notes cut off previous notes.</p>
+<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button <span class="chord-btn-icon" data-num="3"></span></p>
+<p><strong>Operation:</strong> Only plays root note of each Chord Button. New notes cut off previous notes.</p>
 <p><strong>Display:</strong> Shows note names (C, D, E...) instead of chord names</p>
 </div>
 
 <div class="mode-card">
 <h3 id="mode-drone">DRONE</h3>
 <p><strong>Function:</strong> Infinite sustain mode.</p>
-<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button <span class="chord-btn-icon"></span> 4</p>
-<p><strong>Operation:</strong> Hold Chord Button <span class="chord-btn-icon"></span> » sound continues indefinitely until another chord button is pressed</p>
+<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button <span class="chord-btn-icon" data-num="4"></span></p>
+<p><strong>Operation:</strong> Hold Chord Button » sound continues indefinitely until another Chord Button is pressed</p>
 </div>
 
 <div class="mode-card">
 <h3 id="mode-arpeggio">ARPEGGIO</h3>
 <p><strong>Function:</strong> Automatic arpeggiated patterns, tempo-synced.</p>
-<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button <span class="chord-btn-icon"></span> 5</p>
-<p><strong>Operation:</strong> Hold Chord Button <span class="chord-btn-icon"></span> » notes play in sequence automatically</p>
+<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button <span class="chord-btn-icon" data-num="5"></span></p>
+<p><strong>Operation:</strong> Hold Chord Button » notes play in sequence automatically</p>
 
-<p><strong>Pattern Selection:</strong> <span class="inline-code f1">F1</span> + Chord Buttons <span class="chord-btn-icon"></span> 1-5:</p>
+<p><strong>Pattern Selection:</strong> <span class="inline-code f1">F1</span> + Chord Buttons 1-5:</p>
 <ul>
-    <li>Chord Button <span class="chord-btn-icon"></span> 1: UP (ascending)</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 2: DOWN (descending)</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 3: UP/DOWN (ascend then descend)</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 4: RANDOM</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 5: FINGERPICK</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="1"></span>: UP (ascending)</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="2"></span>: DOWN (descending)</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="3"></span>: UP/DOWN (ascend then descend)</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="4"></span>: RANDOM</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="5"></span>: FINGERPICK</li>
 </ul>
 
-<p><strong>Chord Mode:</strong> <span class="inline-code f1">F1</span> + Chord Buttons <span class="chord-btn-icon"></span> 6-7 cycles:</p>
+<p><strong>Chord Mode:</strong> <span class="inline-code f1">F1</span> + Chord Buttons 6-7 cycles:</p>
 <ul>
     <li>ARP_ONLY — Just arpeggio</li>
     <li>CHORD+ARP — Sustained chord with arpeggio on top</li>
     <li>RHYTHM+ARP — Rhythmic chord stabs with arpeggio</li>
 </ul>
 
-<p><strong>Rhythm Rate:</strong> Press <span class="inline-code f3">F3</span> » Joystick UP <span class="joy-up"></span> (opens Mode menu) » UP to cycle through rates (1/4, 1/8, 1/16, 1/16T, 1/32)</p>
+<p><strong>Rhythm Rate:</strong> Press <span class="inline-code f3">F3</span>, then Joystick UP <span class="joy-up"></span> (opens Mode menu), then UP <span class="joy-up"></span> to cycle through rates (1/4, 1/8, 1/16, 1/16T, 1/32)</p>
 </div>
 
 <div class="mode-card">
 <h3>REPEAT</h3>
 <p><strong>Function:</strong> Rhythmic gating/stuttering effect.</p>
-<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button <span class="chord-btn-icon"></span> 6</p>
+<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button <span class="chord-btn-icon" data-num="6"></span></p>
 <p><strong>Operation:</strong> Chord repeats at selected rhythm rate (set via <span class="inline-code f3">F3</span> + Joystick UP <span class="joy-up"></span>)</p>
 </div>
 
 <div class="mode-card">
 <h3 id="mode-drummode">DRUMMODE</h3>
 <p><strong>Function:</strong> Manual drum triggering.</p>
-<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button <span class="chord-btn-icon"></span> 7</p>
-<p><strong>Operation:</strong> Each Chord Button <span class="chord-btn-icon"></span> triggers a different drum sound:</p>
+<p><strong>Quick Select:</strong> <span class="inline-code f3">F3</span> + Chord Button <span class="chord-btn-icon" data-num="7"></span></p>
+<p><strong>Operation:</strong> Each Chord Button triggers a different drum sound:</p>
 <ul>
-    <li>Chord Button <span class="chord-btn-icon"></span> 1: Kick</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 2: Snare</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 3: Hi-hat</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 4: Tom</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 5: Bell/Ride</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 6-7: Additional percussion</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="1"></span>: Kick</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="2"></span>: Snare</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="3"></span>: Hi-hat</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="4"></span>: Tom</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="5"></span>: Bell/Ride</li>
+    <li>Chord Buttons 6-7: Additional percussion</li>
 </ul>
 
-<p><strong>Drum Kits:</strong> <span class="inline-code f2">F2</span> + Chord Buttons <span class="chord-btn-icon"></span> 1-5:</p>
+<p><strong>Drum Kits:</strong> <span class="inline-code f2">F2</span> + Chord Buttons 1-5:</p>
 <ul>
-    <li>Chord Button <span class="chord-btn-icon"></span> 1: 808 (deep sub kick)</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 2: 909 (punchy techno)</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 3: LINN (warm vintage)</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 4: CR78 (vintage analog)</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 5: TRAP (ultra sub bass)</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="1"></span>: 808 (deep sub kick)</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="2"></span>: 909 (punchy techno)</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="3"></span>: LINN (warm vintage)</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="4"></span>: CR78 (vintage analog)</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="5"></span>: TRAP (ultra sub bass)</li>
 </ul>
 </div>
 
 <div class="mode-card">
 <h3>DRUMLOOPMODE</h3>
 <p><strong>Function:</strong> Pre-programmed drum patterns with variations.</p>
-<p><strong>Access:</strong> Press <span class="inline-code f3">F3</span> » Joystick UP <span class="joy-up"></span> (opens Mode menu) » LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to browse modes » select DRUMLOOPMODE</p>
+<p><strong>Access:</strong> Press <span class="inline-code f3">F3</span>, then Joystick UP <span class="joy-up"></span> (opens Mode menu), then LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to browse modes, select DRUMLOOPMODE</p>
 <p><strong>Operation:</strong></p>
 <ul>
-    <li>Chord Buttons <span class="chord-btn-icon"></span> 1-7: Select and toggle patterns (0-6) on/off</li>
-    <li>Hold chord button <span class="chord-btn-icon"></span> + Joystick UP <span class="joy-up"></span> / DOWN <span class="joy-down"></span>: Select variation (0-7)</li>
+    <li>Chord Buttons 1-7: Select and toggle patterns (0-6) on/off</li>
+    <li>Hold Chord Button + Joystick UP <span class="joy-up"></span> / DOWN <span class="joy-down"></span>: Select variation (0-7)</li>
     <li>Joystick LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> (no button held): Switch drum kits</li>
 </ul>
 
 <p><strong>7 Patterns:</strong></p>
 <ul>
-    <li>Chord Button <span class="chord-btn-icon"></span> 1 (Pattern 0): ROCK</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 2 (Pattern 1): DISCO</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 3 (Pattern 2): REGGAE</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 4 (Pattern 3): FUNK</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 5 (Pattern 4): HIP-HOP</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 6 (Pattern 5): ELECTRO</li>
-    <li>Chord Button <span class="chord-btn-icon"></span> 7 (Pattern 6): JAZZ</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="1"></span> (Pattern 0): ROCK</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="2"></span> (Pattern 1): DISCO</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="3"></span> (Pattern 2): REGGAE</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="4"></span> (Pattern 3): FUNK</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="5"></span> (Pattern 4): HIP-HOP</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="6"></span> (Pattern 5): ELECTRO</li>
+    <li>Chord Button <span class="chord-btn-icon" data-num="7"></span> (Pattern 6): JAZZ</li>
 </ul>
 
 <p><strong>8 Variations per pattern:</strong></p>
@@ -1890,11 +1905,11 @@ Drum loops persist across mode changes. You can start a drum loop, switch to ONE
 <p><strong>Function:</strong> Rhythm-controlled drum triggering mode (automatically activated from DRUMMODE).</p>
 <p><strong>How it works:</strong></p>
 <ul>
-    <li>In DRUMMODE, press any Chord Button <span class="chord-btn-icon"></span> (1-7) and move the joystick » automatically enters AUTODRUM</li>
-    <li>Release joystick » returns to DRUMMODE</li>
+    <li>In DRUMMODE, press any Chord Button <span class="chord-btn-icon"></span> (1-7) and move the Joystick » automatically enters AUTODRUM</li>
+    <li>Release Joystick » returns to DRUMMODE</li>
 </ul>
 
-<p><strong>Rhythm Rate Control (while holding chord button <span class="chord-btn-icon"></span> + joystick):</strong></p>
+<p><strong>Rhythm Rate Control (while holding Chord Button <span class="chord-btn-icon"></span> + Joystick):</strong></p>
 <ul>
     <li>Joystick UP <span class="joy-up"></span>: 1/4 note</li>
     <li>Joystick RIGHT <span class="joy-right"></span>: 1/8 note</li>
@@ -1907,14 +1922,14 @@ Drum loops persist across mode changes. You can start a drum loop, switch to ONE
 </ul>
 
 <div class="note-box">
-<strong>Note:</strong> AUTODRUM is not a standalone mode you select from the <strong>Mode</strong> menu <span class="menu-icon"></span>. It's a temporary state that activates when you use DRUMMODE with joystick control, allowing you to set precise rhythm rates for drum triggers.
+<strong>Note:</strong> AUTODRUM is not a standalone mode you select from the <strong>Mode</strong> menu <span class="menu-icon"></span>. It's a temporary state that activates when you use DRUMMODE with Joystick control, allowing you to set precise rhythm rates for drum triggers.
 </div>
 </div>
 
 <div class="mode-card">
 <h3>SEQUENCER</h3>
 <p><strong>Function:</strong> 16-step chord sequencer.</p>
-<p><strong>Access:</strong> Press <span class="inline-code f3">F3</span> » Joystick UP (opens Mode menu) » LEFT/RIGHT to browse modes » select SEQUENCER</p>
+<p><strong>Access:</strong> Press <span class="inline-code f3">F3</span>, then Joystick UP <span class="joy-up"></span> (opens Mode menu), then LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to browse modes, select SEQUENCER</p>
 <p><strong>Recording:</strong></p>
 <ol>
     <li>Enter SEQUENCER mode (in RECORD by default)</li>
@@ -1940,7 +1955,7 @@ Drum loops persist across mode changes. You can start a drum loop, switch to ONE
 <div class="mode-card">
 <h3>CHORDHIRO</h3>
 <p><strong>Function:</strong> Rhythm game for learning chord progressions (Guitar Hero style).</p>
-<p><strong>Access:</strong> Press <span class="inline-code f3">F3</span> » Joystick UP <span class="joy-up"></span> (opens Mode menu) » LEFT/RIGHT to browse modes » select CHORDHIRO</p>
+<p><strong>Access:</strong> Press <span class="inline-code f3">F3</span>, then Joystick UP <span class="joy-up"></span> (opens Mode menu), then LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to browse modes, select CHORDHIRO</p>
 
 <p><strong>Operation:</strong></p>
 <ol>
@@ -1950,7 +1965,7 @@ Drum loops persist across mode changes. You can start a drum loop, switch to ONE
     <li>Press Joystick CLICK <span class="joy-click"></span> to confirm song selection</li>
     <li>Press Joystick CLICK <span class="joy-click"></span> again to start countdown</li>
     <li>After 4-beat countdown, gameplay begins</li>
-    <li>Play the correct chord using Chord Buttons <span class="chord-btn-icon"></span> and Joystick modifiers when circles reach the hit zone</li>
+    <li>Play the correct chord using Chord Buttons and Joystick modifiers when circles reach the hit zone</li>
     <li>Press <span class="inline-code f3">F3</span> during gameplay to exit</li>
 </ol>
 
@@ -1967,7 +1982,7 @@ Drum loops persist across mode changes. You can start a drum loop, switch to ONE
 
 <p><strong>Chord Type Display:</strong></p>
 <ul>
-    <li><strong>Number only:</strong> Major chord (no joystick needed)</li>
+    <li><strong>Number only:</strong> Major chord (no Joystick needed)</li>
     <li><strong>↓ arrow:</strong> Minor chord (Joystick DOWN <span class="joy-down"></span>)</li>
     <li><strong>↑ arrow:</strong> Sus4 chord (Joystick UP <span class="joy-up"></span>)</li>
     <li><strong>↖ arrow:</strong> Major7 chord (Joystick UP-RIGHT)</li>
@@ -2008,7 +2023,7 @@ Drum loops persist across mode changes. You can start a drum loop, switch to ONE
 <div class="mode-card">
 <h3>EARTRAINER</h3>
 <p><strong>Function:</strong> Train ear to recognize chords.</p>
-<p><strong>Access:</strong> Press <span class="inline-code f3">F3</span> » Joystick UP (opens Mode menu) » LEFT/RIGHT to browse modes » select EARTRAINER</p>
+<p><strong>Access:</strong> Press <span class="inline-code f3">F3</span>, then Joystick UP <span class="joy-up"></span> (opens Mode menu), then LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to browse modes, select EARTRAINER</p>
 <p><strong>Operation:</strong></p>
 <ol>
     <li>HiChord plays root note, then a chord</li>
@@ -2034,7 +2049,7 @@ Drum loops persist across mode changes. You can start a drum loop, switch to ONE
 <div class="mode-card">
 <h3>TUNER <span style="color: #f59e0b;">[Batch 4+]</span></h3>
 <p><strong>Function:</strong> Chromatic tuner with visual feedback.</p>
-<p><strong>Access:</strong> Press <span class="inline-code f3">F3</span> » Joystick UP (opens Mode menu) » LEFT/RIGHT to browse modes » select TUNER</p>
+<p><strong>Access:</strong> Press <span class="inline-code f3">F3</span>, then Joystick UP <span class="joy-up"></span> (opens Mode menu), then LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to browse modes, select TUNER</p>
 <p><strong>Operation:</strong></p>
 <ol>
     <li>Connect instrument to HiChord input</li>
@@ -2068,21 +2083,21 @@ Drum loops persist across mode changes. You can start a drum loop, switch to ONE
 <div class="mode-card">
 <h3>MIC_SAMPLE <span style="color: #f59e0b;">[Batch 4+]</span></h3>
 <p><strong>Function:</strong> Record custom samples from microphone/line input.</p>
-<p><strong>Access:</strong> Press <span class="inline-code f3">F3</span> » Joystick UP (opens Mode menu) » LEFT/RIGHT to browse modes » select MIC_SAMPLE</p>
+<p><strong>Access:</strong> Press <span class="inline-code f3">F3</span>, then Joystick UP <span class="joy-up"></span> (opens Mode menu), then LEFT <span class="joy-left"></span> / RIGHT <span class="joy-right"></span> to browse modes, select MIC_SAMPLE</p>
 <p><strong>Operation:</strong></p>
 <ol>
     <li>Enter MIC_SAMPLE mode</li>
     <li>Display shows microphone icon and instructions</li>
-    <li>Press <strong>Chord Button <span class="chord-btn-icon"></span> 1</strong> to start recording (~1 second)</li>
+    <li>Press <strong>Chord Button <span class="chord-btn-icon" data-num="1"></span></strong> to start recording (~1 second)</li>
     <li>Display shows "RECORDING..."</li>
     <li>After recording, automatic pitch detection runs</li>
     <li>Display shows detected pitch</li>
     <li>Joystick UP <span class="joy-up"></span> / DOWN <span class="joy-down"></span>: Fine-tune pitch (±semitones) if needed</li>
-    <li>Press <strong>Chord Button <span class="chord-btn-icon"></span> 1</strong> again to save and use sample</li>
+    <li>Press <strong>Chord Button <span class="chord-btn-icon" data-num="1"></span></strong> again to save and use sample</li>
     <li>Sample saved to QSPI flash (persists across power cycles)</li>
     <li>Waveform automatically set to SAMPLE_MIC_CUSTOM</li>
     <li>Mode switches to ONESHOT</li>
-    <li>Play Chord Buttons <span class="chord-btn-icon"></span> to hear your sample at different pitches!</li>
+    <li>Play Chord Buttons to hear your sample at different pitches!</li>
 </ol>
 
 <div class="note-box">
@@ -2095,7 +2110,7 @@ Sample specs: ~1 second max, 48kHz 16-bit mono, stored in non-volatile flash
 <h2 id="section07">07 // LOOPER</h2>
 
 <div class="note-box critical">
-<strong>IMPORTANT:</strong> The looper is controlled entirely by the JOYSTICK. No function buttons are needed!
+<strong>IMPORTANT:</strong> The looper is controlled entirely by the Joystick. No function buttons are needed!
 </div>
 
 <p><strong>Capacity:</strong> 2 independent tracks (~20 seconds each)</p>
@@ -2103,7 +2118,7 @@ Sample specs: ~1 second max, 48kHz 16-bit mono, stored in non-volatile flash
 <h3>Getting Started with the Looper</h3>
 <p>The looper is always available and ready to use. To start recording:</p>
 <ol>
-    <li>Press Joystick CLICK <span class="joy-click"></span> to activate the looper » enters WAITING state</li>
+    <li>Press Joystick CLICK <span class="joy-click"></span> to activate the looper, enters WAITING state</li>
     <li>In WAITING state, optionally adjust bar count (0-8) using Joystick LEFT/RIGHT</li>
     <li>Press Joystick CLICK <span class="joy-click"></span> again to start recording</li>
     <li>The looper cycles through states: OFF → WAITING → RECORD → LOOP → OFF</li>
@@ -2126,7 +2141,7 @@ Sample specs: ~1 second max, 48kHz 16-bit mono, stored in non-volatile flash
 
 <h3>Recording Track 1 (First Track)</h3>
 <ol>
-    <li><strong>Start:</strong> Press Joystick CLICK <span class="joy-click"></span> » cycles OFF → WAITING</li>
+    <li><strong>Start:</strong> Press Joystick CLICK <span class="joy-click"></span>, cycles OFF → WAITING</li>
     <li><strong>Adjust bars (optional):</strong> In WAITING state, Joystick LEFT/RIGHT sets bar count
         <ul>
             <li>0 = Free mode (no bar limit)</li>
@@ -2148,7 +2163,7 @@ Sample specs: ~1 second max, 48kHz 16-bit mono, stored in non-volatile flash
 <ol>
     <li><strong>Prerequisite:</strong> Track 1 must be looping first</li>
     <li><strong>Switch tracks:</strong> Joystick LEFT/RIGHT (or UP/DOWN in drum modes)</li>
-    <li><strong>Start:</strong> Press Joystick CLICK <span class="joy-click"></span> » cycles OFF → WAITING</li>
+    <li><strong>Start:</strong> Press Joystick CLICK <span class="joy-click"></span>, cycles OFF → WAITING</li>
     <li><strong>Begin recording:</strong> Press Joystick CLICK <span class="joy-click"></span> again
         <ul>
             <li>Recording syncs automatically to Track 1's loop start</li>
@@ -2194,7 +2209,7 @@ Sample specs: ~1 second max, 48kHz 16-bit mono, stored in non-volatile flash
 <p><strong>How it works:</strong></p>
 <ol>
     <li>Start a drum loop in DRUMLOOPMODE (Joystick UP/DOWN and LEFT/RIGHT to select pattern)</li>
-    <li>Press <span class="inline-code f3">F3</span> » Joystick UP (opens Mode menu)</li>
+    <li>Press <span class="inline-code f3">F3</span>, then Joystick UP <span class="joy-up"></span> (opens Mode menu)</li>
     <li>Switch to any other mode (ONESHOT, STRUM, ARPEGGIO, etc.)</li>
     <li>HiChord automatically captures the full 16-step drum pattern to an available looper track (Track 1 or Track 2)</li>
     <li>Drum loop now plays from the looper, freeing you to play chords over it</li>
@@ -2223,7 +2238,7 @@ Sample specs: ~1 second max, 48kHz 16-bit mono, stored in non-volatile flash
 │ ● ○           BPM: 120       │
 └──────────────────────────────┘</pre>
         </div>
-        <div class="oled-label">Main Display (Chord Button <span class="chord-btn-icon"></span> 1, C Major, Track 1 looping)</div>
+        <div class="oled-label">Main Display (Chord Button <span class="chord-btn-icon" data-num="1"></span>, C Major, Track 1 looping)</div>
     </div>
 
     <!-- Looper Waiting -->
@@ -2438,7 +2453,7 @@ During calibration boot: Hold ONLY F1+F3. Do not press F2.
 </table>
 
 <div class="note-box">
-<strong>Why This Matters:</strong> When you press F1 and transpose to a different key, the chord button numbers stay the same, but the actual chord notes change. Chord Button <span class="chord-btn-icon"></span> 1 always plays the I chord, Chord Button <span class="chord-btn-icon"></span> 5 always plays V, etc. This means you can learn a progression in one key and instantly play it in any other key.
+<strong>Why This Matters:</strong> When you press F1 and transpose to a different key, the Chord Button numbers stay the same, but the actual chord notes change. Chord Button <span class="chord-btn-icon" data-num="1"></span> always plays the I chord, Chord Button <span class="chord-btn-icon" data-num="5"></span> always plays V, etc. This means you can learn a progression in one key and instantly play it in any other key.
 </div>
 
 <h4>Common Progressions</h4>
@@ -2455,7 +2470,7 @@ During calibration boot: Hold ONLY F1+F3. Do not press F2.
 
 <h3 id="theory-chords">Chord Type Reference</h3>
 
-<p>HiChord gives you instant access to 16+ chord types via joystick modifications. Here's what each chord type means and how it sounds:</p>
+<p>HiChord gives you instant access to 16+ chord types via Joystick modifications. Here's what each chord type means and how it sounds:</p>
 
 <h4>Basic Triads</h4>
 
@@ -2464,7 +2479,7 @@ During calibration boot: Hold ONLY F1+F3. Do not press F2.
 <p><strong>Formula:</strong> Root + Major 3rd + Perfect 5th (Intervals: 4 semitones + 3 semitones)</p>
 <p><strong>Character:</strong> Bright, happy, stable. The "default" chord sound in Western music.</p>
 <p><strong>Example:</strong> C Major = C-E-G</p>
-<p><strong>Access:</strong> Default (no joystick modification)</p>
+<p><strong>Access:</strong> Default (no Joystick modification)</p>
 </div>
 
 <div class="mode-card">
@@ -2472,7 +2487,7 @@ During calibration boot: Hold ONLY F1+F3. Do not press F2.
 <p><strong>Formula:</strong> Root + Minor 3rd + Perfect 5th (Intervals: 3 semitones + 4 semitones)</p>
 <p><strong>Character:</strong> Dark, sad, emotional. One semitone difference from major changes everything.</p>
 <p><strong>Example:</strong> C minor = C-Eb-G</p>
-<p><strong>Access:</strong> Default for Chord Buttons <span class="chord-btn-icon"></span> 2, 3, 6 (ii, iii, vi) in major mode</p>
+<p><strong>Access:</strong> Default for Chord Buttons 2, 3, 6 (ii, iii, vi) in major mode</p>
 </div>
 
 <div class="mode-card">
@@ -2480,7 +2495,7 @@ During calibration boot: Hold ONLY F1+F3. Do not press F2.
 <p><strong>Formula:</strong> Root + Minor 3rd + Diminished 5th (Intervals: 3 semitones + 3 semitones)</p>
 <p><strong>Character:</strong> Tense, unstable, dissonant. Creates strong pull to resolve.</p>
 <p><strong>Example:</strong> C diminished = C-Eb-Gb</p>
-<p><strong>Access:</strong> Joystick LEFT <span class="joy-left"></span>, or default on Chord Button <span class="chord-btn-icon"></span> 7 (vii°)</p>
+<p><strong>Access:</strong> Joystick LEFT <span class="joy-left"></span>, or default on Chord Button <span class="chord-btn-icon" data-num="7"></span> (vii°)</p>
 </div>
 
 <div class="mode-card">
@@ -2751,7 +2766,7 @@ During calibration boot: Hold ONLY F1+F3. Do not press F2.
 </table>
 
 <div class="note-box">
-<strong>Sound Design Tip:</strong> The RANDOM waveform feature (F2 + Chord Button <span class="chord-btn-icon"></span> 7, or Press F2 (opens Effects menu) + Joystick CLICK <span class="joy-click"></span>) generates hybrid presets by randomly assigning engines, waveforms, detuning, and panning to all 12 oscillators. This can create unique sounds you'd never program manually — try it for happy accidents!
+<strong>Sound Design Tip:</strong> The RANDOM waveform feature (F2 + Chord Button 7, or Press F2 (opens Effects menu) + Joystick CLICK <span class="joy-click"></span>) generates hybrid presets by randomly assigning engines, waveforms, detuning, and panning to all 12 oscillators. This can create unique sounds you'd never program manually — try it for happy accidents!
 </div>
 
 <div class="section-divider"></div>
@@ -2767,7 +2782,7 @@ During calibration boot: Hold ONLY F1+F3. Do not press F2.
     <tr><td>In <strong>F1</strong> Menu <span class="menu-icon"></span>: Joystick LEFT/RIGHT</td><td>Change key / transpose</td></tr>
     <tr><td>Joystick Click (in <strong>F1</strong> menu <span class="menu-icon"></span>)</td><td>Generate random all (waveform, effects, arpeggio)</td></tr>
     <tr><td>F1 + Chord Buttons 1-5 (ARPEGGIO mode)</td><td>Select arpeggio pattern</td></tr>
-    <tr><td>F1 + Chord (chord held first)</td><td>Octave DOWN per chord button</td></tr>
+    <tr><td>F1 + Chord (chord held first)</td><td>Octave DOWN per Chord Button</td></tr>
     <tr><td>F1 + Chord (F1 first)</td><td>ARPEGGIO: select pattern/mode</td></tr>
     <tr><td>F1 + Volume Knob</td><td>Adjust attack time (custom envelope)</td></tr>
     <tr><td>F1 + F2 (hold both)</td><td>Display battery status</td></tr>
