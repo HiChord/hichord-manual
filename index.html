@@ -1940,31 +1940,69 @@ Drum loops persist across mode changes. You can start a drum loop, switch to ONE
 <div class="mode-card">
 <h3>CHORDHIRO</h3>
 <p><strong>Function:</strong> Rhythm game for learning chord progressions (Guitar Hero style).</p>
-<p><strong>Access:</strong> <span class="inline-code f3">F3</span> → Joystick UP → LEFT/RIGHT to select CHORDHIRO</p>
+<p><strong>Access:</strong> <span class="inline-code f3">F3</span> → Joystick UP <span class="joy-up"></span> → LEFT/RIGHT to select CHORDHIRO</p>
+
 <p><strong>Operation:</strong></p>
 <ol>
-    <li>Press <span class="inline-code f2">F2</span> to select song</li>
-    <li>Joystick UP/DOWN browses songs</li>
-    <li>Click to confirm</li>
-    <li>Press <span class="inline-code f3">F3</span> to start countdown</li>
-    <li>Play chords when notes reach hit zone</li>
+    <li>Enter CHORDHIRO mode</li>
+    <li>Press <span class="inline-code f2">F2</span> to browse song library</li>
+    <li>Use Joystick UP <span class="joy-up"></span>/DOWN <span class="joy-down"></span> to select song</li>
+    <li>Press Joystick CLICK <span class="joy-click"></span> to confirm song selection</li>
+    <li>Press Joystick CLICK <span class="joy-click"></span> again to start countdown</li>
+    <li>After 4-beat countdown, gameplay begins</li>
+    <li>Play the correct chord using Chord Buttons <span class="chord-btn-icon"></span> and Joystick modifiers when circles reach the hit zone</li>
+    <li>Press <span class="inline-code f3">F3</span> during gameplay to exit</li>
 </ol>
+
+<p><strong>Song Library (28 Songs):</strong></p>
+<ul>
+    <li><strong>Beginner (1-4):</strong> Basic major/minor chords, 90-95 BPM</li>
+    <li><strong>Sus4 Intro (5-8):</strong> Introduces sus4 chords (UP <span class="joy-up"></span>), 100-110 BPM</li>
+    <li><strong>Jazz Intro (9-12):</strong> Adds 7th chords (DOWN-RIGHT), 100-110 BPM</li>
+    <li><strong>Jazz M7 (13-16):</strong> Adds Major7 chords (UP-RIGHT), 105-115 BPM</li>
+    <li><strong>Diminished (17-20):</strong> Adds dim chords (LEFT <span class="joy-left"></span>), 105-120 BPM</li>
+    <li><strong>Speed Challenge (21-24):</strong> 2-beat changes, 130-160 BPM</li>
+    <li><strong>Expert (25-28):</strong> Mixed durations and chord types, 120-150 BPM</li>
+</ul>
+
+<p><strong>Chord Type Display:</strong></p>
+<ul>
+    <li><strong>Number only:</strong> Major chord (no joystick needed)</li>
+    <li><strong>↓ arrow:</strong> Minor chord (Joystick DOWN <span class="joy-down"></span>)</li>
+    <li><strong>↑ arrow:</strong> Sus4 chord (Joystick UP <span class="joy-up"></span>)</li>
+    <li><strong>↖ arrow:</strong> Major7 chord (Joystick UP-RIGHT)</li>
+    <li><strong>↙ arrow:</strong> 7th chord (Joystick DOWN-RIGHT)</li>
+    <li><strong>← arrow:</strong> Diminished chord (Joystick LEFT <span class="joy-left"></span>)</li>
+</ul>
 
 <p><strong>Scoring:</strong></p>
 <ul>
-    <li>PERFECT (±50ms on EXPERT)</li>
-    <li>GREAT</li>
-    <li>OK</li>
-    <li>MISS</li>
+    <li><strong>PERFECT:</strong> Within ±50ms on EXPERT (tighter on lower difficulties)</li>
+    <li><strong>GREAT:</strong> Good timing</li>
+    <li><strong>OK:</strong> Acceptable timing</li>
+    <li><strong>MISS:</strong> Wrong chord or timing</li>
+    <li><strong>Combo multiplier:</strong> Consecutive hits increase score</li>
 </ul>
 
 <p><strong>Difficulty Levels:</strong></p>
 <ul>
-    <li>EASY: ±200ms timing window</li>
-    <li>MEDIUM: ±150ms</li>
-    <li>HARD: ±100ms</li>
-    <li>EXPERT: ±50ms</li>
+    <li><strong>EASY:</strong> ±200ms timing window</li>
+    <li><strong>MEDIUM:</strong> ±150ms timing window</li>
+    <li><strong>HARD:</strong> ±100ms timing window</li>
+    <li><strong>EXPERT:</strong> ±50ms timing window</li>
 </ul>
+
+<p><strong>Game States:</strong></p>
+<ul>
+    <li><strong>IDLE:</strong> Song selection screen</li>
+    <li><strong>COUNTDOWN:</strong> 4-beat count-in with metronome</li>
+    <li><strong>PLAYING:</strong> Active gameplay with drums and backing track</li>
+    <li><strong>RESULTS:</strong> Score summary with accuracy stats</li>
+</ul>
+
+<div class="note-box">
+<strong>Tip:</strong> Drums only play during the COUNTDOWN and PLAYING states. The game uses sample-accurate audio timing to prevent drift between visual circles and audio beats.
+</div>
 </div>
 
 <div class="mode-card">
